@@ -22,12 +22,12 @@ function onSetLineText() {
     var eltxt = document.querySelector('.text-input');
     var text = eltxt.value;
     setLineText(text);
-    renderMeme(gMeme);
+    renderMeme(gMemes[gCurrMemeIdx]);
 }
 
 
 function drawImg(meme) {
-    // console.log(meme.selectedImgId)
+    console.log(meme.selectedImgId, 'meme id')
     var id = meme.selectedImgId;
     var img = new Image();
     img.src = `img/${id}.jpg`;

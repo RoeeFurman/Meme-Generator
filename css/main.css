@@ -21,3 +21,9 @@ image {
     background-position: center;
     z-index: -4;
 }
+
+.gallery-grid img {
+    height: 200px;
+    border-radius: 20px;
+    margin: 5px;
+}

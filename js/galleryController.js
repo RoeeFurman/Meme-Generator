@@ -7,7 +7,7 @@ function renderGallery() {
     // var gImgs = getimgs();
 
     var strHtmls = imgs.map((img) => {
-        return `<img src="${img.url}" id="${img.id}" class="img ${img.id}">`
+        return `<img src="${img.url}" id="${img.id}" class="img ${img.id}" onclick="onImgClicked(${img.id})">`
                 
         // `<tr>
         // <td class="book-id">${book.id}</td>
@@ -25,4 +25,14 @@ function renderGallery() {
     });
 
     document.querySelector('.gallery-grid').innerHTML = strHtmls.join('');
+}
+
+
+function onImgClicked(idx){
+    console.log(idx, 'imgID');
+    var currMeme = getMemeIdxByPicId(idx);
+    console.log(currMeme, 'currMeme')
+    gCurrMemeIdx = currMeme;
+    console.log(gCurrMemeIdx, 'gcurrMEMEidx');
+    renderMeme(gMemes[currMeme]);
 }
