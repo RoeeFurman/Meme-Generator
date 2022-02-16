@@ -1,0 +1,18 @@
+
+h2 {
+    color: orange;
+}
+
+*{
+    text-align: center;
+}
+
+.canvas-container{
+    background-color: aqua;
+}
+        
+#my-canvas{
+    background-color: aliceblue;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

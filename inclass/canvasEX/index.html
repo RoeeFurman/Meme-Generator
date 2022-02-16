@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Canvas</title>
+</head>
+<body onload="init()">
+    <h1>HTML Canvas</h1>
+
+    <div class="canvas-container">
+        <div class="settings">
+            <p>set background color <input type="color" name="user-background-color"
+                onchange="getColor()"> 
+
+                <span class="shape-select">Pick-Shape</span>
+                <select onchange="onSetShape(this.value)">
+                    <option value="">..Select here</option>
+                    <option value="square">Square</option>
+                    <option value="triangle">Triangle</option>            
+                    <option value="text">Text</option>            
+                    <option value="line">Line</option>            
+                    <option value="rectangle">Rectangle</option>
+                    <option value="circle">Circle</option>
+                </select>
+                <button onclick="clearCanvas()">Clear</button>
+                <button>Save</button>
+            </p>
+            <button onclick="drawImg()">getImg</button>
+            <a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a>
+            <button class="btn" onclick="uploadImg()">Upload Image from Canvas</button>
+            <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+
+        </div>
+        <h3>Container</h3>
+        <!-- <canvas id="my-canvas" height="500" width="500"></canvas> -->
+        <canvas id="my-canvas" height="500" width="500" onmousemove="onMove(event)"></canvas>
+        </div>
+        <img src="img/7.png" alt="" style="display:block;">
+        <div class="share-container"></div>
+
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>

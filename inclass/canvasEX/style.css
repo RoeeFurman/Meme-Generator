@@ -1,0 +1,23 @@
+
+body {
+    text-align: center;
+}
+
+.canvas-container {
+    background-color: black;
+    height: 90vh;
+}
+
+canvas {
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+}
+
+.settings {
+    background-color:yellow;
+}
+
+h3 {
+    color: aqua;
+}

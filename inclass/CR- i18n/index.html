@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+
+    <title>BOOK SHOP</title>
+</head>
+<div class="languege"><span class="selected" onclick="onSetLang('en')">english</span> | <span onclick="onSetLang('he')">hebrew</span></div>
+
+<body>
+    <div class="header-bg">
+        <p class="book-shop" data-trans="book-shop">Book Shop</p>
+        <h2 data-trans="welcome">Welcome to my bookshop</h2>
+        <header>
+            <span class="mvc" data-trans="subtitle">MVC - Model-View-Controller</span>
+            <select onchange="onSetLang(this.value)">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+            </select>
+        </header>
+    </div>
+
+
+    <div class="admin-body">
+
+        <div class="admin-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="id-id" data-trans="id" onclick="onSetSort('ID')">Id</th>
+                        <th class="id-title" data-trans="title" onclick="onSetSort('TITLE')">Title</th>
+                        <th class="id-price" data-trans="price" onclick="onSetSort('PRICE')">Price</th>
+                        <th colspan="3" class="actions" data-trans="actions">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="books-table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-title-container">
+            <button class="x" onclick="closeModal()">x</button>
+            <h3 data-trans="title" class="modal-title">title</h3>
+        </div>
+        <div class="id">
+            <div data-trans="id">ID: </div><span class="id-span"></span>
+        </div>
+        <div class="price">
+            <div data-trans="price">Price: </div><span class="price-span"></span>
+        </div>
+        <img class="img" src="/Day 15 - Layouts/img/1.png">
+        <div class="rate-btns">
+            <button class="rate-btn" onclick="onChangeRate('-')">-</button>
+            <div class="rate-div"><span class="rate">1</span></div>
+            <button class="rate-btn" onclick="onChangeRate('+')">+</button>
+        </div>
+    </div>
+
+    <div class="add-book">
+        <input type="book-name-input" data-trans="Insert Book name" class="input-name" placeholder="Insert Book name" />
+        <input type="text" data-trans="price" class="input-price" size="3" placeholder=" Price" />
+        <button class="btn-add-book" data-trans="add-book" onclick="onAddBook()">Add Book</button>
+    </div>
+    <div class="navigation-bar">
+        <span class="pages-nav"></span>
+    </div>
+
+    <div data-trans="book-deleted" class="notification">Book deleted</div>
+
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/i18n-service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
+</body>
+
+</html>
