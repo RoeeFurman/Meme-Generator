@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>MeMeGen</title>
 </head>
 
 <body onload="init()">
-    <h2>MeMeGeNe - good Luck!</h2>
+    <header class="main-header">
+        <h2>MeMeGeNe - good Luck!</h2>
+        <div class="logo">LOGO</div>
+        <div class="gallery">Gallery</div>
+        <div class="about">About</div>
+    </header>
 
 
     <div class="canvas-container">
@@ -21,11 +26,14 @@
         <button onclick="onChangeFontSize('+')">+</button>
         <button onclick="onChangeFontSize('-')">-</button>
         <button onclick="onSwitchline()">Switch Line</button>
-
+    </div>
+    <div class="gallery-conatiner">
+        <span>search</span><input type="search">
+        <span class="top-search-words">words in random font-sizes</span>
+        <span class="more">MORE</span>
         <div class="gallery-grid">
+
         </div>
-
-
     </div>
 
 
