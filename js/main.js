@@ -5,16 +5,16 @@
 
 
 
-
 function init(){
     console.log('good luck');
-    console.log(gMeme);
-    console.log(gImgs);
-    resizeCanvas()
+    console.log(gMeme, 'gMeme');
+    console.log(gImgs, 'gImgs');
+    renderMeme(gMeme)
+    // resizeCanvas() // responsive
 
 
-    
 
+    //TODO: responsive
     window.addEventListener('resize', () => {
         console.log('resized')
         resizeCanvas()

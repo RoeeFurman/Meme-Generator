@@ -16,3 +16,8 @@ h2 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+image {
+    background-position: center;
+    z-index: -4;
+}
