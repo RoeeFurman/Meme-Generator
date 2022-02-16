@@ -49,11 +49,11 @@ function drawText(currLine, meme, txt, x, y = 70) {
     // gCtx.font = '48px serif';
     // gCtx.fillText(text, x, y);
     if (currLine === 0) {
-        x = 100;
-        y = 50
+        x = gCanvas.width / 6;
+        y = gCanvas.height / 6;
     } else if (currLine === 1) {
-        x = 100;
-        y = 420;
+        x = gCanvas.width / 8;
+        y = gCanvas.height * 7 / 8;
     }
 
     gCtx.lineWidth = 1;

@@ -12,24 +12,35 @@
 <body onload="init()">
     <h2>MeMeGeNe - good Luck!</h2>
     <div class="gallery-bg">
-    <div class="main-header flex align-center space-between">
-        <div class="logo">LOGO</div>
-        <div class="main-nav flex">
-            <div class="gallery">Gallery</div>
-            <div class="about">About</div>
+        <div class="main-header flex align-center space-between">
+            <div class="logo">LOGO</div>
+            <div class="main-nav flex">
+                <div class="gallery">Gallery</div>
+                <div class="about">About</div>
+            </div>
         </div>
-    </div>
 
 
-
-        <div class="canvas-container">
-
-            <canvas id="my-canvas" height="500" width="500"></canvas>
-            <input type="text" class="text-input" oninput="onSetLineText()">
-            <input type="color" name="user-background-color" oninput="onGetColor()">
-            <button onclick="onChangeFontSize('+')">+</button>
-            <button onclick="onChangeFontSize('-')">-</button>
-            <button onclick="onSwitchline()">Switch Line</button>
+        <div class="meme-editor flex space-between align-center">
+            <div class="canvas-container flex">
+                <canvas id="my-canvas" height="380" width="380"></canvas>
+            </div>
+            <div class="tools">
+                <input type="text" class="text-input" oninput="onSetLineText()"><br>
+                <button class="switch-lines" onclick="onSwitchline()">Switch Line</button>
+                <button class="add-lines">Add Line</button>
+                <button class="delete-lines" >Delete</button> <br>
+                <button class="font-bigger" onclick="onChangeFontSize('+')">A+</button> 
+                <button class="font-smaller" onclick="onChangeFontSize('-')">A-</button>
+                <button class="text-align">⨌</button>
+                <button class="text-align">⨌</button>
+                <button class="text-align">⨌</button><br>
+                <input type="color" class="color-input" name="user-background-color" oninput="onGetColor()">
+                <button class="underling">U</button><br>                
+                <div class="emojis">😁🥰😇😼😎😋</div>
+                <button class="share" >Share</button>
+                <button class="download" >Download</button>
+            </div>
         </div>
 
         <div class="gallery-container flex align-center">

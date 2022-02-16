@@ -18,7 +18,6 @@ function init(){
 
 
 
-
     // // TODO: responsive
     // window.addEventListener('resize', () => {
     //     console.log('resized')

@@ -5,6 +5,7 @@
    border-radius: 10px;
     background-color: var(--clr2);
     flex-direction: column;
+    /* display: none; */
 }
 
 .sec-nav{

@@ -1,0 +1,66 @@
+
+
+
+.meme-editor {
+    width: 80%;
+    margin: auto;
+    line-height: 2.3em;
+}
+
+.canvas-container {
+    flex-grow: 30;
+}
+
+#my-canvas{
+    background-color: aliceblue;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tools {
+    width: 50%;
+    
+    background-color: var(--clr11);
+    height: 30vh;
+}
+
+.text-input{
+    width: 80%;
+    border-radius: 20px;
+}
+
+.color-input{
+
+}
+
+.font-bigger{
+    width: 10%;
+}
+
+.font-smaller{
+    width: 10%;
+}
+
+.switch-lines{
+
+}
+
+.add-lines{
+
+}
+
+.emojis{
+
+}
+
+.delete-lines{
+
+}
+
+.share{
+
+}
+
+.download{
+
+}
