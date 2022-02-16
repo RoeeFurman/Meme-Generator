@@ -106,3 +106,37 @@ function onSwitchline() {
     console.log('new line', gCurrLine)
 
 }
+
+
+
+
+function canvasClicked(ev) {
+    const clickedStar = gStars.find(star =>
+        ev.offsetX >= star.x && ev.offsetX <= star.x + gBarWidth &&
+        ev.offsetY >= star.y && ev.offsetY <= star.y + star.rate
+    )
+    console.log(clickedStar);
+    // TODO: find out if clicked a star bar
+    // ev.offsetX >= star.x && ev.offsetX <= star.x + gBarWidth &&
+    // ev.offsetY >= star.y && ev.offsetY <= star.y + star.rate
+
+
+    if (clickedStar) openModal(clickedStar.name, clickedStar.rate, ev.clientX, ev.clientY)
+    else closeModal()
+}
+
+function openModal(starName, starRate, x, y) {
+    // TODO: open the modal with the given text in the given coordinates 
+    // (style.top = style.left = 18 + 'px')
+    const elModal = document.querySelector('.modal')
+    elModal.style.top = y + 'px'
+    elModal.style.left = x + 'px'
+    const msg = `${starName} is ${starRate}% awesome`
+    elModal.innerText = msg
+    elModal.hidden = false
+}
+
+function closeModal() {
+    const elModal = document.querySelector('.modal')
+    elModal.hidden = true
+}
