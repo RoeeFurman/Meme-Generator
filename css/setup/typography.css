@@ -1,6 +1,12 @@
-/* 
+
 @font-face {
-    font-family: Lato;
-    src: url(../../fonts/lato/Lato-Regular.ttf);
+    font-family: poppinsMed;
+    src: url(../../fonts/poppins/Poppins-Medium.ttf);
 }
- */
+
+
+@font-face {
+    font-family: poppinsReg;
+    src: url(../../fonts/poppins/Poppins-Regular.ttf);
+}
+

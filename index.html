@@ -11,33 +11,38 @@
 
 <body onload="init()">
     <h2>MeMeGeNe - good Luck!</h2>
-    <header class="main-header flex align-center space-between">
+    <div class="gallery-bg">
+    <div class="main-header flex align-center space-between">
         <div class="logo">LOGO</div>
         <div class="main-nav flex">
             <div class="gallery">Gallery</div>
             <div class="about">About</div>
         </div>
-    </header>
-
-
-    <div class="canvas-container">
-
-        <canvas id="my-canvas" height="500" width="500"></canvas>
-        <input type="text" class="text-input" oninput="onSetLineText()">
-        <input type="color" name="user-background-color" oninput="onGetColor()">
-        <button onclick="onChangeFontSize('+')">+</button>
-        <button onclick="onChangeFontSize('-')">-</button>
-        <button onclick="onSwitchline()">Switch Line</button>
     </div>
-    <div class="gallery-conatiner">
-        <span>search</span><input type="search">
-        <span class="top-search-words">words in random font-sizes</span>
-        <span class="more">MORE</span>
-        <div class="gallery-grid">
 
+
+
+        <div class="canvas-container">
+
+            <canvas id="my-canvas" height="500" width="500"></canvas>
+            <input type="text" class="text-input" oninput="onSetLineText()">
+            <input type="color" name="user-background-color" oninput="onGetColor()">
+            <button onclick="onChangeFontSize('+')">+</button>
+            <button onclick="onChangeFontSize('-')">-</button>
+            <button onclick="onSwitchline()">Switch Line</button>
+        </div>
+
+        <div class="gallery-container flex align-center">
+            <div class="sec-nav flex space-between">
+                <input type="search" class="search-bar flex">
+                <span class="top-search-words flex">words in random font-sizes</span>
+                <span class="more flex">MORE</span>
+            </div>
+            <div class="gallery-grid">
+
+            </div>
         </div>
     </div>
-
 
 
     <script src="js/main.js"></script>

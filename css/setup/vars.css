@@ -1,9 +1,12 @@
-/* :root {
+:root {
     --clr1: #626262;
-    --clr2: #000;
-    --clr3: #b4ad9e;
-    --clr4: #f0f0f0;
+    --clr2: #383B42;
+    --clr3: #0C98B9;
+    --clr4: #33BE6D;
     --clr5: rgb(36, 36, 36);
-    --clr6: #d3d3d3;
-    --clr7: #58C93A;
-} */
+    --clr6: #22252C;
+    --clr7: #87898D;
+    --clr8: #FEFEFE;
+    --clr9: #F64F8B;
+    --clr10: #F88558;
+}

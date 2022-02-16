@@ -1,0 +1,11 @@
+
+.canvas-container{
+    background-color: aqua;
+    display: none;
+}
+        
+#my-canvas{
+    background-color: aliceblue;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

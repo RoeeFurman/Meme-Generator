@@ -2,12 +2,11 @@
 
 .main-header{
     /* background-color: aqua; */
-    background: linear-gradient(#0C98B9, #33BE6D);
+    background: linear-gradient(var(--clr3),var(--clr4));
     border-radius: 20px;
     height: 3em;
     margin-bottom: 1em;
     color: aliceblue;
-    font-weight: bolder;
 }
 
 .logo{
@@ -16,6 +15,10 @@
 
 .main-nav{
     flex-basis: 30%;
+}
+
+.main-header{
+    margin-top: 20px
 }
 
 .gallery{
