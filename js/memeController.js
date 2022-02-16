@@ -2,6 +2,7 @@
 
 var gCanvas;
 var gCtx;
+var gCurrLine = 0;
 var gColor = 'black';
 
 gCanvas = document.getElementById('my-canvas');
@@ -12,7 +13,8 @@ function renderMeme(meme) {
     console.log('hello')
     // var txt = meme.lines[0].txt;
     // console.log(txt);
-    drawImg(meme);
+    // console.log(meme.lines,'lines')
+    drawImg(meme, meme.lines);
     // drawText(meme, 100, 100)
 }
 
@@ -26,39 +28,56 @@ function onSetLineText() {
 }
 
 
-function drawImg(meme) {
+function drawImg(meme, lines) {
+    var currLine = 0;
     console.log(meme.selectedImgId, 'meme id')
     var id = meme.selectedImgId;
     var img = new Image();
     img.src = `img/${id}.jpg`;
-
+    console.log(lines[0].txt);
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        drawText(meme, 120, 80)
+        lines.forEach(line => {
+            drawText(currLine, meme, line.txt)
+            currLine++
+        })
     };
 }
 
 
-function drawText(meme, x, y) {
+function drawText(currLine, meme, txt, x, y = 70) {
     // gCtx.font = '48px serif';
     // gCtx.fillText(text, x, y);
+    if (currLine === 0) {
+        x = 100;
+        y = 50
+    } else if (currLine === 1) {
+        x = 100;
+        y = 420;
+    }
 
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = meme.lines[0].color;
-    gCtx.font = `${meme.lines[0].size}px arial`; //TODO: add font
-    gCtx.fillText(meme.lines[0].txt, x, y);
-    gCtx.strokeText(meme.lines[0].txt, x, y);
+    gCtx.fillStyle = meme.lines[currLine].color;
+    gCtx.font = `${meme.lines[currLine].size}px arial`; //TODO: add font
+    gCtx.fillText(txt, x, y);
+    gCtx.strokeText(txt, x, y);
+    // gCtx.lineWidth = 1;
+    // gCtx.strokeStyle = 'black';
+    // gCtx.fillStyle = meme.lines[gCurrLine].color;
+    // gCtx.font = `${meme.lines[gCurrLine].size}px arial`; //TODO: add font
+    // gCtx.fillText(meme.lines[gCurrLine].txt, x, y);
+    // gCtx.strokeText(meme.lines[gCurrLine].txt, x, y);
 }
 
 
-// function resizeCanvas() {
-//     var elContainer = document.querySelector('.canvas-container');
-//     // Note: changing the canvas dimension this way clears the canvas
-//     gCanvas.width = elContainer.offsetWidth - 20
-//         // Unless needed, better keep height fixed.
-//         //   gCanvas.height = elContainer.offsetHeight
-// }
+function resizeCanvas() {
+    var elContainer = document.querySelector('.canvas-container');
+    // Note: changing the canvas dimension this way clears the canvas
+    gCanvas.width = elContainer.offsetWidth - 20
+    // Unless needed, better keep height fixed.
+    //   gCanvas.height = elContainer.offsetHeight
+}
 
 
 function onGetColor() {
@@ -70,9 +89,20 @@ function onGetColor() {
 }
 
 
-function onChangeFontSize(diff){
+function onChangeFontSize(diff) {
     console.log('change font size', diff)
-    
+
     changeFontSize(diff);
     renderMeme(gMemes[gCurrMemeIdx])
+}
+
+
+function onSwitchline() {
+    console.log('currLine', gCurrLine)
+    console.log('now switch')
+    // console.log(gMemes[gCurrMemeIdx].lines.length-1, 'this');
+    if (gCurrLine < gMemes[gCurrMemeIdx].lines.length - 1) gCurrLine++;
+    else (gCurrLine = 0)
+    console.log('new line', gCurrLine)
+
 }

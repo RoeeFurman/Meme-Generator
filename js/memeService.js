@@ -6,12 +6,18 @@ var gMemes = [
     {
         selectedImgId: 2,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I sometimes eat Falafel', size: 25, align: 'left', color: 'blue' }]
+        lines: [
+            { txt: 'I sometimes eat Falafel', size: 25, align: 'left', color: 'blue' },
+            { txt: 'I sometimes eat shakshuka', size: 25, align: 'left', color: 'green' }
+    ]
     },
     {
         selectedImgId: 5,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  eat Falafel', size: 38, align: 'left', color: 'blue' }]
+        lines: [
+            { txt: 'I  eat Falafel', size: 38, align: 'left', color: 'blue' },
+            { txt: 'I love shakshuka', size: 30, align: 'left', color: 'red' },
+        ]
     },
     {
         selectedImgId: 9,
@@ -30,11 +36,11 @@ var gMemes = [
     },
 ]
 
-var gMeme = {
-    selectedImgId: 2,
-    selectedLineIdx: 0,
-    lines: [{ txt: 'I sometimes eat Falafel', size: 25, align: 'left', color: 'blue' }]
-}
+// var gMeme = {
+//     selectedImgId: 2,
+//     selectedLineIdx: 0,
+//     lines: [{ txt: 'I sometimes eat Falafel', size: 25, align: 'left', color: 'blue' }]
+// }
 
 
 function getMeme() {
@@ -53,7 +59,7 @@ function setLineText(value) {
     // var curridx = getMemeIdxByPicId(gCurrMemeIdx);
     // console.log(curridx, 'curridx')
     // console.log(gMemes[gCurrMemeIdx].lines[0], 'this') //get position
-    gMemes[gCurrMemeIdx].lines[0].txt = value; //get position
+    gMemes[gCurrMemeIdx].lines[gCurrLine].txt = value; //get position
     // console.log(gMemes[curridx]);
     return
 }
@@ -77,16 +83,16 @@ function getMemeIdxByPicId(picId) {
 
 
 function changeColor(newColor) {
-    gMemes[gCurrMemeIdx].lines[0].color = newColor;
+    gMemes[gCurrMemeIdx].lines[gCurrLine].color = newColor;
     return
 }
 
 function changeFontSize(diff) {
     console.log(diff)
     if (diff === '+') {
-        gMemes[gCurrMemeIdx].lines[0].size += 2;
-        console.log(gMemes[gCurrMemeIdx].lines[0].size)
-    } else gMemes[gCurrMemeIdx].lines[0].size -= 2;
+        gMemes[gCurrMemeIdx].lines[gCurrLine].size += 2;
+        console.log(gMemes[gCurrMemeIdx].lines[gCurrLine].size)
+    } else gMemes[gCurrMemeIdx].lines[gCurrLine].size -= 2;
 
     return;
 }
