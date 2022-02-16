@@ -8,7 +8,7 @@ gCtx = gCanvas.getContext('2d');
 
 
 function renderMeme(){
-
+console.log('hello')
 }
 
 
