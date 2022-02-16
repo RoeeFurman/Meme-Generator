@@ -14,14 +14,17 @@
 
 
     <div class="canvas-container">
-        
-        <canvas id="my-canvas" height="500" width="500"></canvas>
-        <input type="text" class="text-input" onkeypress="onSetLineText()">
-        
-                <div class="gallery-grid">
-                    <!-- <img src="img/12.jpg" id="12" class="img 12"> -->
-                </div>
 
+        <canvas id="my-canvas" height="500" width="500"></canvas>
+        <input type="text" class="text-input" oninput="onSetLineText()">
+        <input type="color" name="user-background-color" oninput="onGetColor()">
+        <button onclick="onChangeFontSize('+')">+</button>
+        <button onclick="onChangeFontSize('-')">-</button>
+
+        <div class="gallery-grid">
+        </div>
+
+        
     </div>
 
 

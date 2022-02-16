@@ -71,6 +71,22 @@ function getMemeIdxByPicId(picId) {
     return gMemes.findIndex((meme) => {
         console.log(meme.selectedImgId, 'meme.selectedImgId')
         console.log(picId, 'picid')
-        if (picId === meme.selectedImgId) return picId;   
+        if (picId === meme.selectedImgId) return picId;
     })
+}
+
+
+function changeColor(newColor) {
+    gMemes[gCurrMemeIdx].lines[0].color = newColor;
+    return
+}
+
+function changeFontSize(diff) {
+    console.log(diff)
+    if (diff === '+') {
+        gMemes[gCurrMemeIdx].lines[0].size += 2;
+        console.log(gMemes[gCurrMemeIdx].lines[0].size)
+    } else gMemes[gCurrMemeIdx].lines[0].size -= 2;
+
+    return;
 }

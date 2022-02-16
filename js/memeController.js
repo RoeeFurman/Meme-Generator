@@ -59,3 +59,20 @@ function drawText(meme, x, y) {
 //         // Unless needed, better keep height fixed.
 //         //   gCanvas.height = elContainer.offsetHeight
 // }
+
+
+function onGetColor() {
+    gColor = document.querySelector('[name=user-background-color]').value;
+    console.log(gColor);
+
+    changeColor(gColor);
+    renderMeme(gMemes[gCurrMemeIdx])
+}
+
+
+function onChangeFontSize(diff){
+    console.log('change font size', diff)
+    
+    changeFontSize(diff);
+    renderMeme(gMemes[gCurrMemeIdx])
+}

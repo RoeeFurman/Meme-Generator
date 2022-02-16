@@ -8,6 +8,7 @@
 function init(){
     console.log('good luck');
     console.log(gMeme, 'gMeme');
+    console.log(gMemes, 'gMemes');
     console.log(gImgs, 'gImgs');
     renderMeme(gMeme)
     renderGallery()    
