@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,31 @@
     <link rel="stylesheet" href="css/main.css">
     <title>MeMeGen</title>
 </head>
+
 <body onload="init()">
     <h2>good Luck!</h2>
 
-    <div class="gallery">
-
-    </div>
 
     <div class="canvas-container">
         
         <canvas id="my-canvas" height="500" width="500"></canvas>
         <input type="text" class="text-input" onkeypress="onSetLineText()">
+        
+                <div class="gallery-grid">
+                    <!-- <img src="img/12.jpg" id="12" class="img 12"> -->
+                </div>
 
     </div>
 
-    
 
-<script src="js/main.js"></script>
-<script src="js/memeController.js"></script>
-<script src="js/memeService.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/memeController.js"></script>
+    <script src="js/memeService.js"></script>
+    <script src="js/galleryController.js"></script>
+    <script src="js/galleryService.js"></script>
 
 
 </body>
+
 </html>

@@ -2,8 +2,10 @@
 
 
 var gImgs = [
-    { id: 1, url: 'img/1.jpg', keywords: ['funny', 'politics'] },
-    { id: 2, url: 'img/2.jpg', keywords: ['funny', 'dog', 'dogs'] },
+    { id: 5, url: 'img/1.jpg', keywords: ['funny', 'politics'] },
+    { id: 9, url: 'img/9.jpg', keywords: ['funny', 'dog', 'dogs'] },
+    { id: 8, url: 'img/8.jpg', keywords: ['funny', 'dog', 'dogs'] },
+    { id: 7, url: 'img/7.jpg', keywords: ['funny', 'dog', 'dogs'] }
 ];
 
 var gMeme = {

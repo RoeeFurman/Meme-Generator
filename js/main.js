@@ -10,7 +10,11 @@ function init(){
     console.log(gMeme, 'gMeme');
     console.log(gImgs, 'gImgs');
     renderMeme(gMeme)
+    renderGallery()    
+    
+    
     // resizeCanvas() // responsive
+
 
 
 
