@@ -1,0 +1,18 @@
+
+
+.canvas-container{
+    background-color: aqua;
+    display: none;
+}
+        
+#my-canvas{
+    background-color: aliceblue;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.gallery-grid img {
+    height: 200px;
+    border-radius: 20px;
+    margin: 5px;
+}

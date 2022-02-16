@@ -71,13 +71,13 @@ function drawText(currLine, meme, txt, x, y = 70) {
 }
 
 
-function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container');
-    // Note: changing the canvas dimension this way clears the canvas
-    gCanvas.width = elContainer.offsetWidth - 20
-    // Unless needed, better keep height fixed.
-    //   gCanvas.height = elContainer.offsetHeight
-}
+// function resizeCanvas() {
+//     var elContainer = document.querySelector('.canvas-container');
+//     // Note: changing the canvas dimension this way clears the canvas
+//     gCanvas.width = elContainer.offsetWidth - 20
+//     // Unless needed, better keep height fixed.
+//     //   gCanvas.height = elContainer.offsetHeight
+// }
 
 
 function onGetColor() {

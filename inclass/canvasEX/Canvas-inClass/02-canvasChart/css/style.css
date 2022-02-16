@@ -17,3 +17,7 @@ canvas {
     padding: 5px;
     position: absolute;
 }
+
+.canvas-container {
+    display:none;
+}
