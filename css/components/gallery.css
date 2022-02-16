@@ -2,7 +2,7 @@
 
 .canvas-container{
     background-color: aqua;
-    display: none;
+    /* display: none; */
 }
         
 #my-canvas{

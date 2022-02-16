@@ -1,17 +1,40 @@
 
 
 .main-header{
-
+    /* background-color: aqua; */
+    background: linear-gradient(#0C98B9, #33BE6D);
+    border-radius: 20px;
+    height: 3em;
+    margin-bottom: 1em;
+    color: aliceblue;
+    font-weight: bolder;
 }
 
 .logo{
+    margin-left: 3em;
+}
 
+.main-nav{
+    flex-basis: 30%;
 }
 
 .gallery{
-
+    background-color: white;
+    display: inline-block;
+    height: 2em;
+    border-radius: 20px;
+    width: 5em;
+    line-height: 2em;
+    vertical-align: auto;
+    color: black;
 }
 
 .about{
-    
+    /* background-color: white; */
+    display: inline-block;
+    height: 2em;
+    border-radius: 20px;
+    width: 5em;
+    line-height: 2em;
+    vertical-align: auto;
 }
