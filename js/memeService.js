@@ -4,11 +4,35 @@ var gCurrMemeIdx = 0;
 
 var gMemes = [
     {
-        selectedImgId: 2,
+        selectedImgId: 1,
         selectedLineIdx: 0,
         lines: [
             { txt: 'I sometimes eat Falafel', size: 25, align: 'left', color: 'blue' },
             { txt: 'I sometimes eat shakshuka', size: 25, align: 'left', color: 'green' }
+    ]
+    },
+    {
+        selectedImgId: 2,
+        selectedLineIdx: 0,
+        lines: [
+            { txt: 'sometimes eat ', size: 25, align: 'left', color: 'blue' },
+            { txt: 'I shakshuka', size: 25, align: 'left', color: 'green' }
+    ]
+    },
+    {
+        selectedImgId: 3,
+        selectedLineIdx: 0,
+        lines: [
+            { txt: 'sometimes eat ', size: 25, align: 'left', color: 'blue' },
+            { txt: 'I shakshuka', size: 25, align: 'left', color: 'green' }
+    ]
+    },
+    {
+        selectedImgId: 4,
+        selectedLineIdx: 0,
+        lines: [
+            { txt: 'sometimes eat ', size: 25, align: 'left', color: 'blue' },
+            { txt: 'I shakshuka', size: 25, align: 'left', color: 'green' }
     ]
     },
     {
@@ -20,9 +44,17 @@ var gMemes = [
         ]
     },
     {
-        selectedImgId: 9,
+        selectedImgId: 6,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+        lines: [
+            { txt: 'I  eat Falafel', size: 38, align: 'left', color: 'blue' },
+            { txt: 'I love shakshuka', size: 30, align: 'left', color: 'red' },
+        ]
+    },
+    {
+        selectedImgId: 7,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I', size: 55, align: 'left', color: 'blue' }]
     },
     {
         selectedImgId: 8,
@@ -30,17 +62,57 @@ var gMemes = [
         lines: [{ txt: 'eat Falafel', size: 45, align: 'left', color: 'blue' }]
     },
     {
-        selectedImgId: 7,
+        selectedImgId: 9,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I', size: 55, align: 'left', color: 'blue' }]
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 10,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 11,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 12,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 13,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 14,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 15,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 16,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 17,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
+    },
+    {
+        selectedImgId: 18,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  Falafel', size: 15, align: 'left', color: 'blue' }]
     },
 ]
 
-// var gMeme = {
-//     selectedImgId: 2,
-//     selectedLineIdx: 0,
-//     lines: [{ txt: 'I sometimes eat Falafel', size: 25, align: 'left', color: 'blue' }]
-// }
 
 
 function getMeme() {

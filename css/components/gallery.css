@@ -52,8 +52,3 @@
     border-radius: 20px;
     margin: .5em;
 }
-
-.gallery-bg {
-    background: linear-gradient(var(--clr9),var(--clr10));
-    height: 90vh;
-}

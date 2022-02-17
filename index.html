@@ -10,8 +10,8 @@
 </head>
 
 <body onload="init()">
-    <h2>MeMeGeNe - good Luck!</h2>
-    <div class="gallery-bg">
+    <!-- <h2>MeMeGeNe - good Luck!</h2> -->
+    <div class="gallery-bg main-layout">
         <div class="main-header flex align-center space-between">
             <div class="logo">LOGO</div>
             <div class="main-nav flex">
@@ -25,25 +25,31 @@
             <div class="canvas-container flex">
                 <canvas id="my-canvas" height="380" width="380"></canvas>
             </div>
-            <div class="tools">
+            <div class="tools flex align-center">
                 <input type="text" class="text-input" oninput="onSetLineText()"><br>
-                <button class="switch-lines" onclick="onSwitchline()">Switch Line</button>
-                <button class="add-lines">Add Line</button>
-                <button class="delete-lines" >Delete</button> <br>
-                <button class="font-bigger" onclick="onChangeFontSize('+')">A+</button> 
-                <button class="font-smaller" onclick="onChangeFontSize('-')">A-</button>
-                <button class="text-align">⨌</button>
-                <button class="text-align">⨌</button>
-                <button class="text-align">⨌</button><br>
-                <input type="color" class="color-input" name="user-background-color" oninput="onGetColor()">
-                <button class="underling">U</button><br>                
+                <div class="text-editor">
+                    <button class="delete-lines" >Delete</button>
+                    <button class="font-bigger" onclick="onChangeFontSize('+')">A+</button> 
+                    <button class="font-smaller" onclick="onChangeFontSize('-')">A-</button>
+                    <button class="text-align">⨌</button>
+                    <button class="text-align">⨌</button>
+                    <button class="text-align">⨌</button>
+                    <button class="underling">U</button>            
+                </div>
+                <div class="lines-editor">
+                    <button class="switch-lines" onclick="onSwitchline()">Switch Line</button>
+                    <button class="add-lines">Add Line</button>
+                    <input type="color" class="color-input" name="user-background-color" oninput="onGetColor()">
+                </div>
                 <div class="emojis">😁🥰😇😼😎😋</div>
-                <button class="share" >Share</button>
-                <button class="download" >Download</button>
+                <div class="share">
+                    <button class="share" >Share</button>
+                    <button class="download" >Download</button>
+                </div>
             </div>
         </div>
 
-        <div class="gallery-container flex align-center">
+        <div class="gallery-container flex align-center main-layout">
             <div class="sec-nav flex space-between">
                 <input type="search" class="search-bar flex">
                 <span class="top-search-words flex">words in random font-sizes</span>

@@ -3,15 +3,15 @@ button {
     border-radius: 10px;
 }
 
-
-h2 {
-    color: orange;
-}
-
 *{
     text-align: center;
     box-sizing: border-box;
     font-family: poppinsMed;
+}
+
+html {
+    background: linear-gradient(var(--clr9),var(--clr10));
+    width: 100%;
 }
 
 
