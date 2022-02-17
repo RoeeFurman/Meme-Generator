@@ -2,10 +2,13 @@
 
 
 .meme-editor {
-    /* display: none; */
     width: 85%;
     margin: auto;
     line-height: 2.3em;
+}
+
+.none {
+    display: none;
 }
 
 .canvas-container {
@@ -18,6 +21,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 15px;
+    border: 1px solid var(--clr7);
 }
 
 .tools {

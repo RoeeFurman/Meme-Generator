@@ -11,14 +11,12 @@ function init(){
     console.log(gMemes, 'gMemes');
     console.log(gImgs, 'gImgs');
     renderMeme(gMemes[0])
+    openGallery()
     
     
     // resizeCanvas() // responsive
     renderGallery()    
 
-
-
-    // // TODO: responsive
     // window.addEventListener('resize', () => {
     //     console.log('resized')
     //     resizeCanvas()

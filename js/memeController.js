@@ -56,9 +56,9 @@ function drawText(currLine, meme, txt, x, y) {
 
     meme.lines[currLine].x = x;
     meme.lines[currLine].y = y;
-    console.log(meme.lines[currLine].x,'x',meme.lines[currLine].y,'y');
-    console.log(meme.lines[currLine].x+gCtx.measureText(txt).width,'x+width',meme.lines[currLine].y + meme.lines[currLine].size,'y');
-    console.log(meme)
+    // console.log(meme.lines[currLine].x,'x',meme.lines[currLine].y,'y');
+    // console.log(meme.lines[currLine].x+gCtx.measureText(txt).width,'x+width',meme.lines[currLine].y + meme.lines[currLine].size,'y');
+    // console.log(meme)
     
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'black';
@@ -153,4 +153,24 @@ function openModal(x, y, length, height) {
 function closeModal() {
     const elModal = document.querySelector('.modal')
     elModal.hidden = true
+}
+
+function closeEditor(){
+    var elGallery = document.querySelector('.meme-editor');
+    elGallery.classList.add('none');
+}
+
+function openEditor(){
+    var elGallery = document.querySelector('.meme-editor');
+    elGallery.classList.remove('none');
+}
+
+function renderTextToInput(txt){
+    var eltxt = document.querySelector('.text-input');
+    eltxt.value = txt
+}
+
+function clearInput(){
+    var eltxt = document.querySelector('.text-input');
+    eltxt.value = ''
 }

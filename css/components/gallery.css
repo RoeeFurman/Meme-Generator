@@ -50,5 +50,7 @@
 .gallery-grid img {
     height: 8em;
     border-radius: 20px;
-    margin: .5em;
+    margin: .4em;
+    cursor: pointer;
+    border: 1px solid var(--clr7);
 }

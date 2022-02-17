@@ -35,4 +35,26 @@ function onImgClicked(idx){
     gCurrMemeIdx = currMeme;
     console.log(gCurrMemeIdx, 'gcurrMEMEidx');
     renderMeme(gMemes[currMeme]);
+    closeGallery();
+    clearInput()
+}
+
+function closeGallery(){
+    var elGallery = document.querySelector('.gallery-container');
+    elGallery.classList.add('none')
+
+    var elGalleryBtn = document.querySelector('.gallery');
+    elGalleryBtn.classList.remove('clicked-btn');
+    
+    openEditor();
+}
+
+function openGallery(){
+    var elGallery = document.querySelector('.gallery-container');
+    elGallery.classList.remove('none');
+
+    var elGalleryBtn = document.querySelector('.gallery');
+    elGalleryBtn.classList.add('clicked-btn');
+    closeModal()
+    closeEditor();
 }

@@ -7,7 +7,7 @@ var gMemes = [
         selectedImgId: 1,
         selectedLineIdx: 0,
         lines: [
-            { txt: 'I sometimes eat Falafel', size: 25, align: 'left', color: 'blue' },
+            { txt: '', size: 25, align: 'left', color: 'blue' },
             { txt: 'I sometimes eat shakshuka', size: 25, align: 'left', color: 'green' }
         ]
     },
@@ -191,6 +191,11 @@ function canvasClicked(ev) {
         console.log(textLength, 'textlen')
         var fontSize = lines[clickedLineIdx].size;
 
+        renderTextToInput(lines[clickedLineIdx].txt);
+
         openModal(lineX, lineY, textLength, fontSize);
-    } else closeModal();
+    } else {
+        closeModal();
+        clearInput()
+    }
 }
