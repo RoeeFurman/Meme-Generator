@@ -2,6 +2,7 @@
 
 
 .meme-editor {
+        /* display: none; */
     width: 85%;
     margin: auto;
     line-height: 2.3em;
@@ -21,10 +22,12 @@
     background-color: var(--clr11);
     border-radius: 20px;
     flex-direction: column;
+    padding: .5em;
 }
 
 .tools button {
     max-width: 8em;
+    min-width: 2em;
 }
 
 .text-input{

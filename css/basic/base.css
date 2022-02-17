@@ -12,6 +12,8 @@ button {
 html {
     background: linear-gradient(var(--clr9),var(--clr10));
     width: 100%;
+    background-repeat: no-repeat;
+    height: 100hv;
 }
 
 

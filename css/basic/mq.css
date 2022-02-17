@@ -6,6 +6,16 @@
         flex-direction: column;
     }
 
+    .gallery-grid img {
+        height: 5em !important;
+        border-radius: 20px;
+        margin: .5em;
+    }
+
+    .top-search-words{
+        font-size: .6em;
+    }
+
 }
 
 
