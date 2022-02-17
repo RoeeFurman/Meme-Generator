@@ -5,7 +5,6 @@
     background: linear-gradient(var(--clr3),var(--clr4));
     border-radius: 20px;
     height: 3em;
-    margin-bottom: 1em;
     color: aliceblue;
 }
 
@@ -17,10 +16,6 @@
 .main-nav{
     flex-basis: 15%;
     margin-right: 1em;
-}
-
-.main-header{
-    margin-top: 20px
 }
 
 .about {

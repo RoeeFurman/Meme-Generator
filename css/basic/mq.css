@@ -21,7 +21,7 @@
     }
 
     .emojis{
-        margin-top:0.1em;
+        margin: 0.7em;
     }
     .text-editor{
         /* margin-top: .7em; */
@@ -57,14 +57,16 @@
 
     .main-header{
         max-width: 80%;
+        margin-top: 1em;
     }
-
+    
     .meme-editor{
         max-width: 60%;
     }
     
     .gallery-container{
         max-width: 80%;
+        margin-top: 1em;
     }
 
     .gallery-grid{
@@ -75,6 +77,8 @@
         width: 60%;
         margin-left: 2em;
         align-items: center;
+        height: 250px;
+        justify-content: space-between;
     }
 
     .tools button {

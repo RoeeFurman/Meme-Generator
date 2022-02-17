@@ -5,6 +5,7 @@
    border-radius: 10px;
     background-color: var(--clr2);
     flex-direction: column;
+    margin-top: 0.8em;
     /* display: none; */
 }
 
@@ -50,7 +51,7 @@
 .gallery-grid img {
     height: 8em;
     border-radius: 20px;
-    margin: .4em;
+    margin: .2em;
     cursor: pointer;
     border: 1px solid var(--clr7);
 }

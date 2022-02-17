@@ -28,7 +28,7 @@
     background-color: var(--clr11);
     border-radius: 20px;
     flex-direction: column;
-    padding: .5em;
+    /* padding: .5em; */
 }
 
 .tools button {
@@ -65,7 +65,7 @@
 }
 
 .add-lines{
-
+    margin-bottom: 0.7em;
 }
 
 .emojis{
@@ -76,7 +76,6 @@
     /* height: 2.2em; */
     cursor: pointer;
     border-radius: 20px;
-
 }
 
 .delete-lines{
