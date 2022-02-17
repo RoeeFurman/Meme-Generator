@@ -30,7 +30,7 @@
             <div class="tools flex align-center">
                 <input type="text" class="text-input" oninput="onSetLineText()">
                 <div class="text-editor">
-                    <button class="delete-lines" >Delete</button>
+                    <button class="delete-lines" onclick="onDeleteLine()">Delete</button>
                     <button class="font-bigger" onclick="onChangeFontSize('+')">A+</button> 
                     <button class="font-smaller" onclick="onChangeFontSize('-')">A-</button>
                     <button class="text-align">⨌</button>
@@ -61,11 +61,12 @@
 
             </div>
         </div>
+        <h5>Ø created by Roee Furman</h5>
     </div>
 
-    <h5>Ø created by Roee Furman</h5>
 
     <script src="js/main.js"></script>
+    <script src="js/util.service.js"></script>
     <script src="js/memeController.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/galleryController.js"></script>

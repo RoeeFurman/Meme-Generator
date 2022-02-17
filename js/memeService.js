@@ -1,13 +1,14 @@
 'use strict'
 
 var gCurrMemeIdx = 0;
+// var gAddLine = 0;
 
 var gMemes = [
     {
         selectedImgId: 1,
         selectedLineIdx: 0,
         lines: [
-            { txt: '', size: 25, align: 'left', color: 'blue' },
+            { txt: 'I am trump', size: 25, align: 'left', color: 'blue' },
             { txt: 'I sometimes eat shakshuka', size: 25, align: 'left', color: 'green' }
         ]
     },
@@ -120,7 +121,7 @@ function getMeme() {
 }
 
 function setLineText(value) {
-
+    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
     // var currImgIdx = getMemeIdxByPicId(gCurrMemeIdx);
     // console.log(currImgIdx, 'currImgIdx');
     console.log(gCurrMemeIdx);
@@ -128,7 +129,7 @@ function setLineText(value) {
     // var curridx = getMemeIdxByPicId(gCurrMemeIdx);
     // console.log(curridx, 'curridx')
     // console.log(gMemes[gCurrMemeIdx].lines[0], 'this') //get position
-    gMemes[gCurrMemeIdx].lines[gCurrLine].txt = value; //get position
+    gMemes[gCurrMemeIdx].lines[currLine].txt = value; //get position
     // console.log(gMemes[curridx]);
     return
 }
@@ -175,27 +176,40 @@ function canvasClicked(ev) {
     var lines = gMemes[gCurrMemeIdx].lines;
 
     // console.log(lines);
-    console.log(ev.offsetX, 'x clicked')
-    console.log(ev.offsetY, 'y clicked')
+    // console.log(ev.offsetX, 'x clicked')
+    // console.log(ev.offsetY, 'y clicked')
     const clickedLineIdx = lines.findIndex(line =>
         ev.offsetX >= line.x && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
         ev.offsetY >= line.y - line.size && ev.offsetY <= line.y
-
     )
     // console.log(lineX, lineY, textLength, fontSize);
     gCurrLine = clickedLineIdx;
-    if(clickedLineIdx >=0){
-        var lineX = lines[clickedLineIdx].x;
-        var lineY = lines[clickedLineIdx].y;
-        var textLength = gCtx.measureText(lines[clickedLineIdx].txt).width;
-        console.log(textLength, 'textlen')
-        var fontSize = lines[clickedLineIdx].size;
+    if (clickedLineIdx >= 0) {
+        gMemes[gCurrMemeIdx].selectedLineIdx = clickedLineIdx;
+        openModal(gMemes[gCurrMemeIdx].lines[clickedLineIdx])
+        console.log(gMemes[gCurrMemeIdx].selectedLineIdx);
 
-        renderTextToInput(lines[clickedLineIdx].txt);
+        // renderTextToInput(lines[clickedLineIdx].txt);
 
-        openModal(lineX, lineY, textLength, fontSize);
     } else {
+        gMemes[gCurrMemeIdx].selectedLineIdx = 0;
         closeModal();
         clearInput()
     }
+}
+
+
+function addLine() {
+    if (gMemes[gCurrMemeIdx].lines.length > 2) return
+
+    var newLine = { txt: 'new line here', size: 25, align: 'left', color: 'blue' };
+    gMemes[gCurrMemeIdx].lines.push(newLine)
+    console.log(gMemes[gCurrMemeIdx].lines);
+}
+
+function deleteLine(){
+    var lines = gMemes[gCurrMemeIdx].lines;
+    console.log(lines)
+    var currMeme = gMemes[gCurrMemeIdx].selectedLineIdx;
+    lines[currMeme].txt = '';
 }
