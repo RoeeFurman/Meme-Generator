@@ -20,10 +20,12 @@
             </div>
         </div>
 
-
         <div class="meme-editor flex space-between align-center">
-            <div class="canvas-container flex">
-                <canvas id="my-canvas" height="380" width="380"></canvas>
+            <div class="canvas-container">
+                <div class="stick-to-canvas">
+                    <canvas id="my-canvas" height="380" width="380" onclick="onCanvasClicked(event)"></canvas>
+                    <div class="modal" hidden></div>
+                </div>
             </div>
             <div class="tools flex align-center">
                 <input type="text" class="text-input" oninput="onSetLineText()">
@@ -44,8 +46,8 @@
                 <div class="emojis">😁🥰😇😼😎😋</div>
                 <div class="share">
                     <button class="share" >Share</button>
-                    <button class="download" >Download</button>
-                </div>
+                    <button><a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a></button>
+                    </div>
             </div>
         </div>
 
