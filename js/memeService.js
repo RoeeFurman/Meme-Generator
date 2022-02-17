@@ -157,10 +157,12 @@ function changeColor(newColor) {
 
 function changeFontSize(diff) {
     console.log(diff)
+    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
+    console.log(currLine);
     if (diff === '+') {
-        gMemes[gCurrMemeIdx].lines[gCurrLine].size += 2;
-        console.log(gMemes[gCurrMemeIdx].lines[gCurrLine].size)
-    } else gMemes[gCurrMemeIdx].lines[gCurrLine].size -= 2;
+        gMemes[gCurrMemeIdx].lines[currLine].size += 2;
+        console.log(gMemes[gCurrMemeIdx].lines[currLine].size)
+    } else gMemes[gCurrMemeIdx].lines[currLine].size -= 2;
 
     return;
 }
@@ -202,7 +204,7 @@ function canvasClicked(ev) {
 function addLine() {
     if (gMemes[gCurrMemeIdx].lines.length > 2) return
 
-    var newLine = { txt: 'new line here', size: 25, align: 'left', color: 'blue' };
+    var newLine = { txt: 'new line here', size: 30, align: 'left', color: 'orange' };
     gMemes[gCurrMemeIdx].lines.push(newLine)
     console.log(gMemes[gCurrMemeIdx].lines);
 }

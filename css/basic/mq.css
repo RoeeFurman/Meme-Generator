@@ -16,14 +16,37 @@
         font-size: .6em;
     }
 
+    .tools{
+        width: 100%;
+    }
 }
 
+@media (min-width:420px){
+    /* .meme-editor{
+        flex-direction: column;
+    }
 
+    .gallery-grid img {
+        height: 5em !important;
+        border-radius: 20px;
+        margin: .5em;
+    }
 
+    .top-search-words{
+        font-size: .6em;
+    } */
 
+    .tools{
+        width: 80%;
+        margin-left: 2em;
+    }
 
+    .tools button {
+        width: 10em;
+    }
 
-
+    
+}
 
 
 

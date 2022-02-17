@@ -2,7 +2,7 @@
 
 
 .meme-editor {
-    width: 85%;
+    width: 95%;
     margin: auto;
     line-height: 2.3em;
 }
@@ -80,10 +80,10 @@
 
 .modal {
     /* height: 50px; */
-    width: 380px;
+    width: 347px;
     background-color: var(--clr11);
-    border: 1px solid var(--clr4);
-    border-radius: 2px;
+    border: 1px solid var(--clr2);
+    border-radius: 10px;
     /* padding: 5px; */
     position: absolute;
 }

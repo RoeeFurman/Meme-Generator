@@ -50,10 +50,10 @@ function drawText(currLine, meme, txt, x, y) {
         x = gCanvas.width / 6;
         y = gCanvas.height / 6;
     } else if (currLine === 1) {
-        x = gCanvas.width / 8;
+        x = gCanvas.width / 6;
         y = gCanvas.height * 7 / 8;
     } else {
-        x = gCanvas.width / 2;
+        x = gCanvas.width / 6;
         y = gCanvas.height / 2;
     }
 
@@ -100,7 +100,8 @@ function onSwitchline() {
         gMemes[gCurrMemeIdx].selectedLineIdx++;
         console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
     } else (gMemes[gCurrMemeIdx].selectedLineIdx = 0)
-
+    console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
+    
     currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
 
     // console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
@@ -184,5 +185,7 @@ function onAddLine() {
 
 function onDeleteLine() {
     deleteLine();
+    clearInput();
+    // closeModal();
     renderMeme(gMemes[gCurrMemeIdx]);
 }

@@ -23,17 +23,16 @@
         <div class="meme-editor flex space-between align-center">
             <div class="canvas-container">
                 <div class="stick-to-canvas">
-                    <canvas id="my-canvas" height="380" width="380" onclick="onCanvasClicked(event)"></canvas>
+                    <canvas id="my-canvas" height="345" width="345" onclick="onCanvasClicked(event)"></canvas>
                     <div class="modal" hidden></div>
                 </div>
             </div>
             <div class="tools flex align-center">
                 <input type="text" class="text-input" oninput="onSetLineText()">
                 <div class="text-editor">
-                    <button class="delete-lines" onclick="onDeleteLine()">Delete</button>
+                    <button class="delete-lines" onclick="onDeleteLine()">Delete text</button>
                     <button class="font-bigger" onclick="onChangeFontSize('+')">A+</button> 
                     <button class="font-smaller" onclick="onChangeFontSize('-')">A-</button>
-                    <button class="text-align">⨌</button>
                     <button class="text-align">⨌</button>
                     <button class="text-align">⨌</button>
                     <button class="underling">U</button>            
