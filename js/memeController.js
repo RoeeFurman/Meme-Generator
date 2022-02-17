@@ -174,3 +174,13 @@ function onDeleteLine() {
     // closeModal();
     renderMeme(gMemes[gCurrMemeIdx]);
 }
+
+function renderEmoji(){
+    // gCtx.lineWidth = 1;
+    // gCtx.strokeStyle = 'black';
+    gCtx.textAlign = 'center';
+    // gCtx.fillStyle = meme.lines[currLine].color;
+    gCtx.font = 25 //TODO: add font
+    gCtx.fillText('💥', gCanvas.width/4, gCanvas.height/4);
+    gCtx.strokeText('💥', gCanvas.width/4, gCanvas.height/4);
+}

@@ -173,7 +173,9 @@ function canvasClicked(ev) {
     var lines = gMemes[gCurrMemeIdx].lines;
 
     const clickedLineIdx = lines.findIndex(line =>
-        ev.offsetX >= line.x && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
+        // ev.offsetX >= line.x && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
+        // ev.offsetY >= line.y - line.size && ev.offsetY <= line.y
+        ev.offsetX >= 0 && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
         ev.offsetY >= line.y - line.size && ev.offsetY <= line.y
     )
     gCurrLine = clickedLineIdx;
@@ -192,7 +194,7 @@ function canvasClicked(ev) {
 function addLine() {
     if (gMemes[gCurrMemeIdx].lines.length > 2) return
 
-    var newLine = { txt: 'new line here', size: 30, align: 'center', color: 'orange' };
+    var newLine = { txt: 'new line here', size: 30, align: 'center', color: getRandomColor() };
     gMemes[gCurrMemeIdx].lines.push(newLine)
     console.log(gMemes[gCurrMemeIdx].lines);
 }
