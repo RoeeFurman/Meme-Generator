@@ -174,3 +174,9 @@ function clearInput(){
     var eltxt = document.querySelector('.text-input');
     eltxt.value = ''
 }
+
+function onAddLine(){
+    console.log('addline?')
+
+    // addLine();
+}
