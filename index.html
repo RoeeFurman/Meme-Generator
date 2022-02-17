@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="tools flex align-center">
-                <input type="text" class="text-input" oninput="onSetLineText()">
+                <input type="text" class="text-input" oninput="onSetLineText()" placeholder="Change text">
                 <div class="lines-editor">
                     <button class="delete-lines" onclick="onDeleteLine()">Delete text</button>
                     <button class="switch-lines" onclick="onSwitchline()">Switch Line</button>
@@ -43,16 +43,16 @@
                     <input type="color" class="color-input" name="user-background-color" oninput="onGetColor()">
                 </div>
                 <div class="emojis">😁🥰😇😼😎😋</div>
-                <div class="share">
+                <div class="others">
                     <button class="share" >Share</button>
-                    <button><a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a></button>
+                    <button class="download"><a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a></button>
                     </div>
             </div>
         </div>
 
         <div class="gallery-container flex align-center main-layout">
             <div class="sec-nav flex space-between">
-                <input type="search" class="search-bar flex">
+                <input type="search" class="search-bar flex" placeholder="Search">
                 <div class="third-nav flex align-center space-between">
                     <span class="top-search-words flex">words in random font-sizes</span>
                     <span class="more flex">MORE</span>

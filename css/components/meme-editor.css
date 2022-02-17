@@ -57,15 +57,17 @@
 .text-editor{
     background-color: var(--clr15);
     border-radius: 20px;
-    height: 3em;
 }
 
 .switch-lines{
-
+    background-color: var(--clr3);
+    color: var(--clr8);
 }
 
 .add-lines{
     margin-bottom: 0.7em;
+    background-color: var(--clr4);
+    color: var(--clr8);
 }
 
 .emojis{
@@ -79,15 +81,18 @@
 }
 
 .delete-lines{
-
+    background-color: var(--clr16);
+    color: var(--clr8);
 }
 
 .share{
-
+    background-color: var(--clr17);
+    color: var(--clr8);
 }
 
 .download{
-
+    background-color: var(--clr18);
+    color: var(--clr17);
 }
 
 
@@ -103,4 +108,8 @@
 
 .stick-to-canvas{
     text-align: initial;
+}
+
+.others {
+    margin-bottom: 1em;
 }

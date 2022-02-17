@@ -24,7 +24,6 @@
         margin: 0.7em;
     }
     .text-editor{
-        /* margin-top: .7em; */
         width: 80%;
         padding: 15px;
     }
@@ -36,24 +35,10 @@
     .third-nav{
         margin-top: .5em;
     }
-                /* <input type="search" class="search-bar flex">
-                <div class="third-nav */
 }
 
 @media (min-width:420px){
-    /* .meme-editor{
-        flex-direction: column;
-    }
 
-    .gallery-grid img {
-        height: 5em !important;
-        border-radius: 20px;
-        margin: .5em;
-    }
-
-    .top-search-words{
-        font-size: .6em;
-    } */
 
     .main-header{
         max-width: 80%;
@@ -95,112 +80,8 @@
         padding: 0 10px;
     }
 
+    .share {
+        margin-bottom: 0.7em;
+    }
+
 }
-
-/* 
-
-@media (min-width: 660px) {
-    .main-layout {
-        max-width: 980px;
-        margin: 0 auto;
-    }
-    
-    .main-content>*:nth-child(1){
-        margin-top: 2.4062em;
-    }
-
-    .card-image{
-        margin-bottom: 0px;
-    }
-
-    .btn-menu {
-        display: none;
-    }
-
-    .main-header .main-nav a {
-        border-right: 1px solid var(--clr2);
-    }
-}
-
-
-@media (min-width: 1000px) {
-    .main-layout {
-        max-width: 980px;
-        margin: 0 auto;
-    }
-
-    .logo {
-        margin-left: 0px;
-    }
-    
-    .main-content>*:nth-child(1){
-        margin-top: 4.4062em;
-    }
-}
-
-
-/* MOBILE ONLY  */
-/* @media (max-width: 660px) {
-
-   ul.main-nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        flex-direction: column;
-        background-color: var(--clr5);
-        height: 100vh;
-        min-width: 220px;
-        border-left: solid 1px var(--clr6);
-        transform: translateX(100%);
-        justify-content: flex-start;
-        transition: transform .6s, box-shadow .6s;
-        z-index: 10;
-    }
-
-    body.menu-open .main-nav {
-        transform: translateX(0);
-        box-shadow: -10px 0px 13px rgb(0 0 0 / 16%);
-    }
-
-    .main-layout {
-        margin: 0;
-        max-width: 660px;
-    }
-
-    .card-container{
-        flex-direction: column;
-        align-items: center;
-        margin: 20px;
-    }
-    
-    h2 {
-        margin-bottom: 0;
-    }
-    
-    
-    p {
-        margin-bottom: 0;
-    }
-    
-    .text{
-        line-height: 1.4em;
-        max-width: 1000px;
-        margin-bottom: 0.84375em ;
-        margin-right: 1.25em;
-    }
-    
-    .main-content>*:nth-child(1) {
-        margin-top: 0.062em;
-    }
-
-    img.card-image{
-        margin-right: 0px;
-        order: 0;
-    }
-
-    .nav-li{
-        /* margin-top: 3.5em; */
-        /* display: flex;
-        justify-content: space-around;
-    }
-}  */ 

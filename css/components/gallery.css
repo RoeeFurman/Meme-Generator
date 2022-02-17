@@ -23,6 +23,7 @@
     border-radius: 20px;
     margin-right: 1em;
     height: 2.5em;
+    color: var(--clr7);
 }
 
 .top-search-words{
@@ -47,11 +48,10 @@
     line-height: 1.5em;
 }
 
-
 .gallery-grid img {
     height: 8em;
     border-radius: 20px;
-    margin: .2em;
+    margin: .2em .2em;
     cursor: pointer;
     border: 1px solid var(--clr7);
 }

@@ -21,6 +21,10 @@ h5{
     margin-top: 0.3em;
 }
 
+a{
+    text-decoration: none;
+}
+
 /* 
 html {
     color: var(--clr1);

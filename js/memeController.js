@@ -11,11 +11,7 @@ gCtx = gCanvas.getContext('2d');
 
 function renderMeme(meme) {
     console.log('hello')
-    // var txt = meme.lines[0].txt;
-    // console.log(txt);
-    // console.log(meme.lines,'lines')
     drawImg(meme, meme.lines);
-    // drawText(meme, 100, 100)
 }
 
 function onSetLineText() {
@@ -43,17 +39,14 @@ function drawImg(meme, lines) {
 }
 
 function drawText(currLine, meme, txt, x, y) {
-
-    // gCtx.font = '48px serif';
-    // gCtx.fillText(text, x, y);
     if (currLine === 0) {
-        x = gCanvas.width / 6;
+        x = gCanvas.width / 2;
         y = gCanvas.height / 6;
     } else if (currLine === 1) {
-        x = gCanvas.width / 6;
+        x = gCanvas.width / 2;
         y = gCanvas.height * 7 / 8;
     } else {
-        x = gCanvas.width / 6;
+        x = gCanvas.width / 2;
         y = gCanvas.height / 2;
     }
 
@@ -62,21 +55,13 @@ function drawText(currLine, meme, txt, x, y) {
 
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'black';
+    gCtx.textAlign = meme.lines[currLine].align;
     gCtx.fillStyle = meme.lines[currLine].color;
     gCtx.font = `${meme.lines[currLine].size}px arial`; //TODO: add font
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
 
 }
-
-
-// function resizeCanvas() {
-//     var elContainer = document.querySelector('.canvas-container');
-//     // Note: changing the canvas dimension this way clears the canvas
-//     gCanvas.width = elContainer.offsetWidth - 20
-//     // Unless needed, better keep height fixed.
-//     //   gCanvas.height = elContainer.offsetHeight
-// }
 
 function onGetColor() {
     gColor = document.querySelector('[name=user-background-color]').value;
