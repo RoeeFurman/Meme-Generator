@@ -19,6 +19,15 @@
     .tools{
         width: 100%;
     }
+
+    .emojis{
+        margin-top:0.1em;
+    }
+    .text-editor{
+        /* margin-top: .7em; */
+        width: 80%;
+        padding: 15px;
+    }
 }
 
 @media (min-width:420px){
@@ -36,22 +45,45 @@
         font-size: .6em;
     } */
 
+    .main-header{
+        max-width: 80%;
+    }
+
+    .meme-editor{
+        max-width: 60%;
+    }
+    
+    .gallery-container{
+        max-width: 80%;
+    }
+
+    .text-editor{
+        margin-top: .7em;
+        width: 95%;
+        padding: 15px;
+    }
+
+    .gallery-grid{
+        max-width: 70%;
+    }
+
     .tools{
-        width: 80%;
+        width: 60%;
         margin-left: 2em;
+        align-items: center;
     }
 
     .tools button {
-        width: 10em;
+        min-width: 10em;
+        max-width: 7em;
+        height: 2.3em;
+        text-align: center;
     }
 
-    
+    .emojis {
+        margin-top: 1em;
+    }
 }
-
-
-
-
-
 
 /* 
 

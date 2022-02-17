@@ -151,7 +151,9 @@ function getMemeIdxByPicId(picId) {
 }
 
 function changeColor(newColor) {
-    gMemes[gCurrMemeIdx].lines[gCurrLine].color = newColor;
+    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
+
+    gMemes[gCurrMemeIdx].lines[currLine].color = newColor;
     return
 }
 

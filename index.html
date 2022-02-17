@@ -29,17 +29,17 @@
             </div>
             <div class="tools flex align-center">
                 <input type="text" class="text-input" oninput="onSetLineText()">
-                <div class="text-editor">
-                    <button class="delete-lines" onclick="onDeleteLine()">Delete text</button>
-                    <button class="font-bigger" onclick="onChangeFontSize('+')">A+</button> 
-                    <button class="font-smaller" onclick="onChangeFontSize('-')">A-</button>
-                    <button class="text-align">⨌</button>
-                    <button class="text-align">⨌</button>
-                    <button class="underling">U</button>            
-                </div>
                 <div class="lines-editor">
+                    <button class="delete-lines" onclick="onDeleteLine()">Delete text</button>
                     <button class="switch-lines" onclick="onSwitchline()">Switch Line</button>
                     <button class="add-lines" onclick="onAddLine()">Add Line</button>
+                </div>
+                <div class="text-editor flex align-center">
+                    <button class="font-bigger" onclick="onChangeFontSize('+')">A+</button> 
+                    <button class="font-smaller" onclick="onChangeFontSize('-')">A-</button>
+                    <button class="underling">U</button>            
+                    <button class="text-align">⨌</button>
+                    <button class="text-align">⨌</button>
                     <input type="color" class="color-input" name="user-background-color" oninput="onGetColor()">
                 </div>
                 <div class="emojis">😁🥰😇😼😎😋</div>

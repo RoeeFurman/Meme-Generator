@@ -53,6 +53,12 @@
     width: 10%;
 }
 
+.text-editor{
+    background-color: var(--clr15);
+    border-radius: 10px;
+    height: 3em;
+}
+
 .switch-lines{
 
 }
@@ -62,7 +68,12 @@
 }
 
 .emojis{
-
+    background-color: var(--clr14);
+    width: 11em;
+    border-radius: 2em;
+    border: solid 1px var(--clr1);
+    height: 2.2em;
+    cursor: pointer;
 }
 
 .delete-lines{
