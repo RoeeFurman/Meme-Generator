@@ -9,7 +9,7 @@ var gMemes = [
         lines: [
             { txt: 'I sometimes eat Falafel', size: 25, align: 'left', color: 'blue' },
             { txt: 'I sometimes eat shakshuka', size: 25, align: 'left', color: 'green' }
-    ]
+        ]
     },
     {
         selectedImgId: 2,
@@ -17,7 +17,7 @@ var gMemes = [
         lines: [
             { txt: 'sometimes eat ', size: 25, align: 'left', color: 'blue' },
             { txt: 'I shakshuka', size: 25, align: 'left', color: 'green' }
-    ]
+        ]
     },
     {
         selectedImgId: 3,
@@ -25,7 +25,7 @@ var gMemes = [
         lines: [
             { txt: 'sometimes eat ', size: 25, align: 'left', color: 'blue' },
             { txt: 'I shakshuka', size: 25, align: 'left', color: 'green' }
-    ]
+        ]
     },
     {
         selectedImgId: 4,
@@ -33,7 +33,7 @@ var gMemes = [
         lines: [
             { txt: 'sometimes eat ', size: 25, align: 'left', color: 'blue' },
             { txt: 'I shakshuka', size: 25, align: 'left', color: 'green' }
-    ]
+        ]
     },
     {
         selectedImgId: 5,
@@ -113,14 +113,11 @@ var gMemes = [
     },
 ]
 
-
-
 function getMeme() {
     //TODO: gMeme = loadFromStorage(currMeme)
     // get meme - update
     return gMeme;
 }
-
 
 function setLineText(value) {
 
@@ -140,7 +137,6 @@ function setImg() {
 
 }
 
-
 function getMemeByPicId(picId) {
     return gMemes.find((meme) => picId === meme.selectedImgId)
 }
@@ -152,7 +148,6 @@ function getMemeIdxByPicId(picId) {
         if (picId === meme.selectedImgId) return picId;
     })
 }
-
 
 function changeColor(newColor) {
     gMemes[gCurrMemeIdx].lines[gCurrLine].color = newColor;
@@ -167,4 +162,35 @@ function changeFontSize(diff) {
     } else gMemes[gCurrMemeIdx].lines[gCurrLine].size -= 2;
 
     return;
+}
+
+function downloadCanvas(elLink) {
+    console.log('downloading')
+    const data = gCanvas.toDataURL();
+    elLink.href = data;
+    elLink.download = 'MyAwsomeMEME';
+}
+
+function canvasClicked(ev) {
+    var lines = gMemes[gCurrMemeIdx].lines;
+
+    // console.log(lines);
+    console.log(ev.offsetX, 'x clicked')
+    console.log(ev.offsetY, 'y clicked')
+    const clickedLineIdx = lines.findIndex(line =>
+        ev.offsetX >= line.x && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
+        ev.offsetY >= line.y - line.size && ev.offsetY <= line.y
+
+    )
+    // console.log(lineX, lineY, textLength, fontSize);
+    gCurrLine = clickedLineIdx;
+    if(clickedLineIdx >=0){
+        var lineX = lines[clickedLineIdx].x;
+        var lineY = lines[clickedLineIdx].y;
+        var textLength = gCtx.measureText(lines[clickedLineIdx].txt).width;
+        console.log(textLength, 'textlen')
+        var fontSize = lines[clickedLineIdx].size;
+
+        openModal(lineX, lineY, textLength, fontSize);
+    } else closeModal();
 }

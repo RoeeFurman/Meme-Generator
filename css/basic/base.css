@@ -1,6 +1,7 @@
 
 button {
     border-radius: 10px;
+    cursor: pointer;
 }
 
 *{
@@ -13,7 +14,7 @@ html {
     background: linear-gradient(var(--clr9),var(--clr10));
     width: 100%;
     background-repeat: no-repeat;
-    height: 100hv;
+    height: 100%;
 }
 
 

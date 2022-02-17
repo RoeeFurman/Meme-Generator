@@ -2,7 +2,7 @@
 
 
 .meme-editor {
-        /* display: none; */
+    /* display: none; */
     width: 85%;
     margin: auto;
     line-height: 2.3em;
@@ -10,12 +10,14 @@
 
 .canvas-container {
     flex-grow: 30;
+    position: relative;
 }
 
 #my-canvas{
     background-color: aliceblue;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 15px;
 }
 
 .tools {
@@ -36,7 +38,7 @@
 }
 
 .color-input{
-
+    cursor: pointer;
 }
 
 .font-bigger{
@@ -69,4 +71,19 @@
 
 .download{
 
+}
+
+
+.modal {
+    /* height: 50px; */
+    width: 380px;
+    background-color: var(--clr11);
+    border: 1px solid var(--clr4);
+    border-radius: 2px;
+    /* padding: 5px; */
+    position: absolute;
+}
+
+.stick-to-canvas{
+    text-align: initial;
 }

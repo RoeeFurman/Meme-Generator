@@ -18,7 +18,6 @@ function renderMeme(meme) {
     // drawText(meme, 100, 100)
 }
 
-
 function onSetLineText() {
     console.log('text changed');
     var eltxt = document.querySelector('.text-input');
@@ -26,7 +25,6 @@ function onSetLineText() {
     setLineText(text);
     renderMeme(gMemes[gCurrMemeIdx]);
 }
-
 
 function drawImg(meme, lines) {
     var currLine = 0;
@@ -44,8 +42,8 @@ function drawImg(meme, lines) {
     };
 }
 
-
-function drawText(currLine, meme, txt, x, y = 70) {
+function drawText(currLine, meme, txt, x, y) {
+    
     // gCtx.font = '48px serif';
     // gCtx.fillText(text, x, y);
     if (currLine === 0) {
@@ -56,6 +54,12 @@ function drawText(currLine, meme, txt, x, y = 70) {
         y = gCanvas.height * 7 / 8;
     }
 
+    meme.lines[currLine].x = x;
+    meme.lines[currLine].y = y;
+    console.log(meme.lines[currLine].x,'x',meme.lines[currLine].y,'y');
+    console.log(meme.lines[currLine].x+gCtx.measureText(txt).width,'x+width',meme.lines[currLine].y + meme.lines[currLine].size,'y');
+    console.log(meme)
+    
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'black';
     gCtx.fillStyle = meme.lines[currLine].color;
@@ -79,7 +83,6 @@ function drawText(currLine, meme, txt, x, y = 70) {
 //     //   gCanvas.height = elContainer.offsetHeight
 // }
 
-
 function onGetColor() {
     gColor = document.querySelector('[name=user-background-color]').value;
     console.log(gColor);
@@ -88,14 +91,12 @@ function onGetColor() {
     renderMeme(gMemes[gCurrMemeIdx])
 }
 
-
 function onChangeFontSize(diff) {
     console.log('change font size', diff)
 
     changeFontSize(diff);
     renderMeme(gMemes[gCurrMemeIdx])
 }
-
 
 function onSwitchline() {
     console.log('currLine', gCurrLine)
@@ -107,24 +108,6 @@ function onSwitchline() {
 
 }
 
-
-
-
-function canvasClicked(ev) {
-    const clickedStar = gStars.find(star =>
-        ev.offsetX >= star.x && ev.offsetX <= star.x + gBarWidth &&
-        ev.offsetY >= star.y && ev.offsetY <= star.y + star.rate
-    )
-    console.log(clickedStar);
-    // TODO: find out if clicked a star bar
-    // ev.offsetX >= star.x && ev.offsetX <= star.x + gBarWidth &&
-    // ev.offsetY >= star.y && ev.offsetY <= star.y + star.rate
-
-
-    if (clickedStar) openModal(clickedStar.name, clickedStar.rate, ev.clientX, ev.clientY)
-    else closeModal()
-}
-
 function openModal(starName, starRate, x, y) {
     // TODO: open the modal with the given text in the given coordinates 
     // (style.top = style.left = 18 + 'px')
@@ -133,6 +116,37 @@ function openModal(starName, starRate, x, y) {
     elModal.style.left = x + 'px'
     const msg = `${starName} is ${starRate}% awesome`
     elModal.innerText = msg
+    elModal.hidden = false
+}
+
+function closeModal() {
+    const elModal = document.querySelector('.modal')
+    elModal.hidden = true
+}
+
+
+function onCanvasClicked(event){
+    console.log('canvas clicked!!!')
+    canvasClicked(event)
+}
+
+function markTextLine(){
+
+}
+
+
+function openModal(x, y, length, height) {
+    console.log(length)
+    console.log(x, y, length, height);
+    // TODO: open the modal with the given text in the given coordinates 
+    // (style.top = style.left = 18 + 'px')
+    const elModal = document.querySelector('.modal')
+    elModal.style.top = y -height + 'px'
+    elModal.style.left = 0 + 'px'
+    elModal.style.height = height*2 +'px'
+    // elModal.style.width = 380 +'px'
+    // const msg = `${starName} is ${starRate}% awesome`
+    // elModal.innerText = msg
     elModal.hidden = false
 }
 
