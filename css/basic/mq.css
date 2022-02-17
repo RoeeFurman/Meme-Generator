@@ -28,6 +28,16 @@
         width: 80%;
         padding: 15px;
     }
+
+    .sec-nav{
+        flex-direction: column;
+    }
+
+    .third-nav{
+        margin-top: .5em;
+    }
+                /* <input type="search" class="search-bar flex">
+                <div class="third-nav */
 }
 
 @media (min-width:420px){
@@ -57,12 +67,6 @@
         max-width: 80%;
     }
 
-    .text-editor{
-        margin-top: .7em;
-        width: 95%;
-        padding: 15px;
-    }
-
     .gallery-grid{
         max-width: 70%;
     }
@@ -76,13 +80,17 @@
     .tools button {
         min-width: 10em;
         max-width: 7em;
-        height: 2.3em;
         text-align: center;
+        margin: auto;
     }
 
-    .emojis {
-        margin-top: 1em;
+        .text-editor{
+        vertical-align: middle;
+        line-height: 3em;
+        width: 80%;
+        padding: 0 10px;
     }
+
 }
 
 /* 

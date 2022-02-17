@@ -4,7 +4,7 @@
 .meme-editor {
     width: 95%;
     margin: auto;
-    line-height: 2.3em;
+    /* line-height: 2.3em; */
 }
 
 .none {
@@ -39,6 +39,7 @@
 .text-input{
     width: 80%;
     border-radius: 20px;
+    margin: 0.7em 0;
 }
 
 .color-input{
@@ -55,7 +56,7 @@
 
 .text-editor{
     background-color: var(--clr15);
-    border-radius: 10px;
+    border-radius: 20px;
     height: 3em;
 }
 
@@ -70,10 +71,12 @@
 .emojis{
     background-color: var(--clr14);
     width: 11em;
-    border-radius: 2em;
     border: solid 1px var(--clr1);
-    height: 2.2em;
+    margin-bottom: .7em;
+    /* height: 2.2em; */
     cursor: pointer;
+    border-radius: 20px;
+
 }
 
 .delete-lines{
