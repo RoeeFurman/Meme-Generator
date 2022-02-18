@@ -211,7 +211,7 @@ function doFlexiblaMode() {
     }
     gMemes[randomNum] = randomMeme;
     console.log(randomMeme, 'random meme');
-    return randomMeme
+    return randomMeme;
 }
 
 function checkTextLength() {
