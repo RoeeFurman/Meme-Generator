@@ -62,8 +62,8 @@ function openGallery(){
 
 function onFlexible(){
     console.log('flexy');
-    doFlexiblaMode();
-    // renderMeme(randomMeme);
+    var randomMeme = doFlexiblaMode();
+    renderMeme()
     closeGallery();
     openEditor();
 }
