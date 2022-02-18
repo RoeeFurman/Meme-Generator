@@ -4,8 +4,7 @@
 @media (max-width:420px){
     .meme-editor{
         flex-direction: column;
-        /* background-image: ; */
-        background: url(img/bg.png);
+        background: url(../../img/bg.png);
         background-size: 180%;    
     }
 
@@ -55,7 +54,7 @@
     .meme-editor{
         max-width: 70%;
         padding: 2em;
-        background: url(img/bg.png);
+        background: url(../../img/bg.png);
         background-size: 100% 200%;    
     }
     
