@@ -8,24 +8,24 @@ var gMemes = [
         selectedImgId: 1,
         selectedLineIdx: 0,
         lines: [
-            { txt: 'I am trump', size: 25, align: 'center', color: 'blue' },
-            { txt: 'I sometimes eat shakshuka', size: 25, align: 'center', color: 'green' }
+            // { txt: 'I am trump', size: 25, align: 'center', color: 'blue' },
+            // { txt: 'I sometimes eat shakshuka', size: 25, align: 'center', color: 'green' }
         ]
     },
     {
         selectedImgId: 2,
         selectedLineIdx: 0,
         lines: [
-            { txt: 'sometimes eat ', size: 25, align: 'center', color: 'blue' },
-            { txt: 'I shakshuka', size: 25, align: 'center', color: 'green' }
+            { txt: 'sometimes eat ', size: 25, align: 'right', color: 'blue' },
+            { txt: 'I shakshuka', size: 25, align: 'left', color: 'green' }
         ]
     },
     {
         selectedImgId: 3,
         selectedLineIdx: 0,
         lines: [
-            { txt: 'sometimes eat ', size: 25, align: 'center', color: 'blue' },
-            { txt: 'I shakshuka', size: 25, align: 'center', color: 'green' }
+            // { txt: 'sometimes eat ', size: 25, align: 'center', color: 'blue' },
+            // { txt: 'I shakshuka', size: 25, align: 'center', color: 'green' }
         ]
     },
     {
@@ -48,44 +48,46 @@ var gMemes = [
         selectedImgId: 6,
         selectedLineIdx: 0,
         lines: [
-            { txt: 'I  eat Falafel', size: 38, align: 'center', color: 'blue' },
-            { txt: 'I love shakshuka', size: 30, align: 'center', color: 'red' },
+            // { txt: 'I  eat Falafel', size: 38, align: 'center', color: 'blue' },
+            // { txt: 'I love shakshuka', size: 30, align: 'center', color: 'red' },
         ]
     },
     {
         selectedImgId: 7,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I', size: 55, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 8,
         selectedLineIdx: 0,
-        lines: [{ txt: 'eat Falafel', size: 45, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 9,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 10,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 11,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 12,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
+        // lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
     },
     {
         selectedImgId: 13,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
+        // lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
     },
     {
         selectedImgId: 14,
@@ -204,4 +206,8 @@ function deleteLine() {
     console.log(lines)
     var currMeme = gMemes[gCurrMemeIdx].selectedLineIdx;
     lines[currMeme].txt = '';
+}
+
+function saveEmoji(){
+
 }

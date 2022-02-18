@@ -6,13 +6,14 @@
     background-color: var(--clr2);
     flex-direction: column;
     margin-top: 0.8em;
+    border: 1px solid var(--clr7);
     /* display: none; */
 }
 
 .sec-nav{
     width: 95%;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-top: .5em;
+    margin-bottom: .6em;
     align-items: center;
 }
 
@@ -41,17 +42,17 @@
     background: linear-gradient(var(--clr3),var(--clr4));
     color: var(--clr8);
     display: inline-block;
-    height: 1.5em;
+    height:2.5em;
     width: 5em;
-    border-radius: 15px;
+    border-radius: 20px;
     vertical-align: middle;
-    line-height: 1.5em;
+    line-height: 2.5em;
 }
 
 .gallery-grid img {
     height: 8em;
     border-radius: 20px;
-    margin: .2em .2em;
+    margin: 0 .1em 0 .1em;
     cursor: pointer;
     border: 1px solid var(--clr7);
 }

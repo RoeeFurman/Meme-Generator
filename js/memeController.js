@@ -18,6 +18,7 @@ function onSetLineText() {
     console.log('text changed');
     var eltxt = document.querySelector('.text-input');
     var text = eltxt.value;
+    if(!gMemes[gCurrMemeIdx].lines.length) addLine();
     setLineText(text);
     renderMeme(gMemes[gCurrMemeIdx]);
 }
@@ -28,10 +29,11 @@ function drawImg(meme, lines) {
     var id = meme.selectedImgId;
     var img = new Image();
     img.src = `img/${id}.jpg`;
-    console.log(lines[0].txt);
+    // console.log(lines[0].txt);
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         lines.forEach(line => {
+            if(lines.length === 0) return
             drawText(currLine, meme, line.txt)
             currLine++
         })
@@ -116,7 +118,7 @@ function openModal(currMeme) {
     const elModal = document.querySelector('.modal')
     elModal.style.top = y - height + 'px'
     elModal.style.left = 0 + 'px'
-    elModal.style.height = height * 2 + 'px'
+    elModal.style.height = 60 + 'px'
 
     elModal.hidden = false
 }
@@ -176,6 +178,7 @@ function onDeleteLine() {
 }
 
 function renderEmoji(){
+    saveEmoji();
     // gCtx.lineWidth = 1;
     // gCtx.strokeStyle = 'black';
     gCtx.textAlign = 'center';

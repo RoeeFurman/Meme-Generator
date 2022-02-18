@@ -4,6 +4,8 @@
 @media (max-width:420px){
     .meme-editor{
         flex-direction: column;
+        background-image: url("/img/bg.png");
+        background-size: 180%;    
     }
 
     .gallery-grid img {
@@ -25,7 +27,7 @@
     }
     .text-editor{
         width: 80%;
-        padding: 15px;
+        padding: 5px;
     }
 
     .sec-nav{
@@ -37,16 +39,23 @@
     }
 }
 
+
+
+
 @media (min-width:420px){
 
 
     .main-header{
         max-width: 80%;
         margin-top: 1em;
+        margin-bottom: 1em;
     }
     
     .meme-editor{
-        max-width: 60%;
+        max-width: 70%;
+        padding: 2em;
+        background-image: url("/img/bg.png");
+        background-size: 100% 200%;    
     }
     
     .gallery-container{
@@ -54,12 +63,15 @@
         margin-top: 1em;
     }
 
-    .gallery-grid{
+
+    .gallery-grid img {
+        height: 10em !important;
+        /* border-radius: 20px; */
         max-width: 70%;
     }
-
+    
     .tools{
-        width: 60%;
+        width: 50%;
         margin-left: 2em;
         align-items: center;
         height: 250px;
@@ -76,7 +88,7 @@
         .text-editor{
         vertical-align: middle;
         line-height: 3em;
-        width: 80%;
+        width: 70%;
         padding: 0 10px;
     }
 
