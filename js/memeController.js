@@ -40,20 +40,27 @@ function drawImg(meme, lines) {
     };
 }
 
-function drawText(currLine, meme, txt, x, y) {
-    if (currLine === 0) {
-        x = gCanvas.width / 2;
-        y = gCanvas.height / 6;
-    } else if (currLine === 1) {
-        x = gCanvas.width / 2;
-        y = gCanvas.height * 7 / 8;
+function drawText(currLine, meme, txt) {
+    // console.log(!meme.lines[currLine].x)
+    if(!meme.lines[currLine].x && !meme.lines[currLine].y){
+        var x;
+        var y;
+        if (currLine === 0) {
+            x = gCanvas.width / 2;
+            y = gCanvas.height / 6;
+        } else if (currLine === 1) {
+            x = gCanvas.width / 2;
+            y = gCanvas.height * 7 / 8;
+        } else {
+            x = gCanvas.width / 2;
+            y = gCanvas.height / 2;
+        }
+            meme.lines[currLine].x = x;
+            meme.lines[currLine].y = y;
     } else {
-        x = gCanvas.width / 2;
-        y = gCanvas.height / 2;
+        x = meme.lines[currLine].x;
+        y=meme.lines[currLine].y;
     }
-
-    meme.lines[currLine].x = x;
-    meme.lines[currLine].y = y;
 
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'black';
@@ -188,7 +195,6 @@ function renderEmoji() {
     gCtx.strokeText('💥', gCanvas.width / 4, gCanvas.height / 4);
 }
 
-
 function doFlexiblaMode() {
     var randomNum = getRandomInt(0, gMemes.length);
     gCurrMemeIdx = randomNum; //todo: keep curr
@@ -199,19 +205,23 @@ function doFlexiblaMode() {
     for (var i = 0; i < randomLinesNum; i++) {
         var randtxt = checkTextLength();
         randomMeme.lines.push({ 'txt': randtxt });
-        randomMeme.lines[i].size = getRandomInt(20, 40);
+        randomMeme.lines[i].size = getRandomInt(20, 35);
         randomMeme.lines[i].color = getRandomColor();
         randomMeme.lines[i].align = 'center';
     }
     gMemes[randomNum] = randomMeme;
     console.log(randomMeme, 'random meme');
-    renderMeme(randomMeme);
+    return randomMeme
 }
 
+function checkTextLength() {
+    var randtext = makeLorem(4);
+    console.log(gCtx.measureText(randtext).width + 40, '<', gCanvas.width)
+    while (gCtx.measureText(randtext).width + 40 > gCanvas.width) {
+        randtext = makeLorem(4);
+        console.log(gCtx.measureText(randtext).width + 40, '<', gCanvas.width, 'new')
+    }
 
-function checkTextLength(){
-    var randtext = makeLorem(2);
-    console.log(gCtx.measureText(randtext).width ,'<', gCanvas.width)
-    if (gCtx.measureText(randtext).width < gCanvas.width) return randtext
-    else randtext = makeLorem(2)
+    return randtext
 }
+

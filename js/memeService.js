@@ -1,6 +1,9 @@
 'use strict'
 
+var gDragLine = false;
 var gCurrMemeIdx = 0;
+var gStartPos;
+
 // var gAddLine = 0;
 
 var gMemes = [
@@ -210,4 +213,26 @@ function deleteLine() {
 
 function saveEmoji(){
 
+}
+
+function setLineDrag(isDrag) {
+    gDragLine = isDrag
+    console.log(gDragLine, 'gdragLine');
+}
+
+function isLineClicked(clickedPos) {
+    var lines = gMemes[gCurrMemeIdx].lines;
+    console.log(lines)
+
+    var lineIdxToDrag = lines.findIndex(line => 
+        (Math.abs(line.y - clickedPos.y) <= 20))
+
+    gMemes[gCurrMemeIdx].selectedLineIdx = lineIdxToDrag;
+    return lineIdxToDrag;
+}
+
+function moveLine(dx, dy) {
+    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
+    gMemes[gCurrMemeIdx].lines[currLine].x += dx
+    gMemes[gCurrMemeIdx].lines[currLine].y += dy
 }
