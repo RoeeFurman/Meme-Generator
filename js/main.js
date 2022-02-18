@@ -33,10 +33,10 @@ function init() {
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
-    window.addEventListener('resize', () => {
-        resizeCanvas()
-        renderCanvas()
-    })
+    // window.addEventListener('resize', () => {
+    //     resizeCanvas()
+    //     renderCanvas()
+    // })
 }
 
 function addMouseListeners() {
@@ -54,6 +54,7 @@ function addTouchListeners() {
 function onDown(ev) {
     const pos = getEvPos(ev)
     console.log('onDown()');
+    console.log(pos, 'pos');
     if (isLineClicked(pos) < 0) return
     setLineDrag(true)
     gStartPos = pos
@@ -82,6 +83,7 @@ function onUp() {
 }
 
 function getEvPos(ev) {
+    console.log(ev);
     var pos = {
         x: ev.offsetX,
         y: ev.offsetY

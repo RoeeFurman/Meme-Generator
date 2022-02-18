@@ -229,7 +229,7 @@ function isLineClicked(clickedPos) {
     console.log(lines)
 
     var lineIdxToDrag = lines.findIndex(line => 
-        (Math.abs(line.y - clickedPos.y) <= 20))
+        (Math.abs(clickedPos.y - line.y) <= 50))
 
     gMemes[gCurrMemeIdx].selectedLineIdx = lineIdxToDrag;
     return lineIdxToDrag;
