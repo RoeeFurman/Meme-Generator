@@ -32,7 +32,7 @@
                 <div class="lines-editor">
                     <button class="delete-lines" onclick="onDeleteLine()">Delete text</button>
                     <button class="switch-lines" onclick="onSwitchline()">Switch Line</button>
-                    <button class="add-lines" onclick="onAddLine()">Add Line</button>
+                    <button class="add-lines" onclick="onAddLine('line')">Add Line</button>
                 </div>
                 <div class="text-editor flex align-center">
                     <button class="font-size-change" onclick="onChangeFontSize('+')">A+</button> 
@@ -42,7 +42,7 @@
                     <button class="text-align">⨌</button>
                     <input type="color" class="color-input" name="user-background-color" oninput="onGetColor()">
                 </div>
-                <div class="emojis" onclick="renderEmoji()">😁🥰😇😼😎😋</div>
+                <div class="emojis" onclick="onAddLine('emoji')">😁🥰😇😼😎😋</div>
                 <div class="others">
                     <button class="share" >Share</button>
                     <button class="download"><a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a></button>

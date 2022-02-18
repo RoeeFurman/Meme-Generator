@@ -170,29 +170,18 @@ function clearInput() {
     eltxt.value = ''
 }
 
-function onAddLine() {
+function onAddLine(val) {
     console.log('addline?')
 
-    addLine();
+    addLine(val);
     renderMeme(gMemes[gCurrMemeIdx]);
 }
 
 function onDeleteLine() {
     deleteLine();
     clearInput();
-    // closeModal();
+    closeModal();
     renderMeme(gMemes[gCurrMemeIdx]);
-}
-
-function renderEmoji() {
-    saveEmoji();
-    // gCtx.lineWidth = 1;
-    // gCtx.strokeStyle = 'black';
-    gCtx.textAlign = 'center';
-    // gCtx.fillStyle = meme.lines[currLine].color;
-    gCtx.font = 25 //TODO: add font
-    gCtx.fillText('💥', gCanvas.width / 4, gCanvas.height / 4);
-    gCtx.strokeText('💥', gCanvas.width / 4, gCanvas.height / 4);
 }
 
 function doFlexiblaMode() {
@@ -216,12 +205,11 @@ function doFlexiblaMode() {
 
 function checkTextLength() {
     var randtext = makeLorem(4);
-    console.log(gCtx.measureText(randtext).width + 40, '<', gCanvas.width)
-    while (gCtx.measureText(randtext).width + 40 > gCanvas.width) {
+    console.log(gCtx.measureText(randtext).width + 100, '<', gCanvas.width)
+    while (gCtx.measureText(randtext).width + 200 > gCanvas.width) {
         randtext = makeLorem(4);
-        console.log(gCtx.measureText(randtext).width + 40, '<', gCanvas.width, 'new')
+        console.log(gCtx.measureText(randtext).width + 100, '<', gCanvas.width, 'new')
     }
 
     return randtext
 }
-

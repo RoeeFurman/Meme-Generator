@@ -196,10 +196,13 @@ function canvasClicked(ev) {
 }
 
 
-function addLine() {
-    if (gMemes[gCurrMemeIdx].lines.length > 2) return
+function addLine(val) {
+    var text;
 
-    var newLine = { txt: 'new line here', size: 30, align: 'center', color: getRandomColor() };
+    if(val ==='emoji') text = '💥'
+    else text = 'new line here'
+
+    var newLine = { txt: text, size: 30, align: 'center', color: getRandomColor() };
     gMemes[gCurrMemeIdx].lines.push(newLine)
     console.log(gMemes[gCurrMemeIdx].lines);
 }
@@ -208,7 +211,8 @@ function deleteLine() {
     var lines = gMemes[gCurrMemeIdx].lines;
     console.log(lines)
     var currMeme = gMemes[gCurrMemeIdx].selectedLineIdx;
-    lines[currMeme].txt = '';
+    // lines[currMeme].txt = '';
+    lines.splice(currMeme,1)
 }
 
 function saveEmoji(){
