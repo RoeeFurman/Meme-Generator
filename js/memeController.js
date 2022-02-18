@@ -18,7 +18,7 @@ function onSetLineText() {
     console.log('text changed');
     var eltxt = document.querySelector('.text-input');
     var text = eltxt.value;
-    if(!gMemes[gCurrMemeIdx].lines.length) addLine();
+    if (!gMemes[gCurrMemeIdx].lines.length) addLine();
     setLineText(text);
     renderMeme(gMemes[gCurrMemeIdx]);
 }
@@ -33,7 +33,7 @@ function drawImg(meme, lines) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         lines.forEach(line => {
-            if(lines.length === 0) return
+            if (lines.length === 0) return
             drawText(currLine, meme, line.txt)
             currLine++
         })
@@ -88,7 +88,7 @@ function onSwitchline() {
         console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
     } else (gMemes[gCurrMemeIdx].selectedLineIdx = 0)
     console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
-    
+
     currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
 
     // console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
@@ -177,13 +177,41 @@ function onDeleteLine() {
     renderMeme(gMemes[gCurrMemeIdx]);
 }
 
-function renderEmoji(){
+function renderEmoji() {
     saveEmoji();
     // gCtx.lineWidth = 1;
     // gCtx.strokeStyle = 'black';
     gCtx.textAlign = 'center';
     // gCtx.fillStyle = meme.lines[currLine].color;
     gCtx.font = 25 //TODO: add font
-    gCtx.fillText('💥', gCanvas.width/4, gCanvas.height/4);
-    gCtx.strokeText('💥', gCanvas.width/4, gCanvas.height/4);
+    gCtx.fillText('💥', gCanvas.width / 4, gCanvas.height / 4);
+    gCtx.strokeText('💥', gCanvas.width / 4, gCanvas.height / 4);
+}
+
+
+function doFlexiblaMode() {
+    var randomNum = getRandomInt(0, gMemes.length);
+    gCurrMemeIdx = randomNum; //todo: keep curr
+
+    var randomMeme = gMemes[randomNum];
+    var randomLinesNum = getRandomInt(1, 3);
+    randomMeme.lines = [];
+    for (var i = 0; i < randomLinesNum; i++) {
+        var randtxt = checkTextLength();
+        randomMeme.lines.push({ 'txt': randtxt });
+        randomMeme.lines[i].size = getRandomInt(20, 40);
+        randomMeme.lines[i].color = getRandomColor();
+        randomMeme.lines[i].align = 'center';
+    }
+    gMemes[randomNum] = randomMeme;
+    console.log(randomMeme, 'random meme');
+    renderMeme(randomMeme);
+}
+
+
+function checkTextLength(){
+    var randtext = makeLorem(2);
+    console.log(gCtx.measureText(randtext).width ,'<', gCanvas.width)
+    if (gCtx.measureText(randtext).width < gCanvas.width) return randtext
+    else randtext = makeLorem(2)
 }

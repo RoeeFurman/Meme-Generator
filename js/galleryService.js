@@ -24,3 +24,7 @@ var gImgs = [
 function getImgById(id){
     return gImgs.find((img) => id === img.id)
 }
+
+function getRandImg(){
+    return gImgs[getRandomInt(0, gImgs.length)];
+}

@@ -58,3 +58,12 @@ function openGallery(){
     closeModal()
     closeEditor();
 }
+
+
+function onFlexible(){
+    console.log('flexy');
+    doFlexiblaMode();
+    // renderMeme(randomMeme);
+    closeGallery();
+    openEditor();
+}
