@@ -113,7 +113,7 @@ function openModal(currMeme) {
 
     const elModal = document.querySelector('.modal')
     elModal.style.top = y - height + 'px'
-    elModal.style.left = 0 + 'px'
+    // elModal.style.left = 0 + 'px'
     elModal.style.height = 60 + 'px'
 
     elModal.hidden = false
@@ -210,4 +210,48 @@ function doAlignText(val){
 
     alignText(val);
     renderMeme(gMemes[gCurrMemeIdx])
+}
+
+
+function doUploadImg(imgDataUrl, onSuccess) {
+
+    const formData = new FormData();
+    formData.append('img', imgDataUrl)
+
+    fetch('//ca-upload.com/here/upload.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.text())
+    .then((url)=>{
+        console.log('Got back live url:', url);
+        onSuccess(url)
+    })
+    .catch((err) => {
+        console.error(err)
+    })
+}
+
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    document.querySelector('.share-container').innerHTML = ''
+    var reader = new FileReader()
+
+    reader.onload = function(event) {
+        console.log('onload');
+        var img = new Image()
+            // Render on canvas
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result
+        gImg = img
+    }
+    console.log('after');
+    reader.readAsDataURL(ev.target.files[0])
+}
+
+function renderImg(img) {
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
