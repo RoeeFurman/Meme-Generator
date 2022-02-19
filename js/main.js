@@ -31,8 +31,8 @@ function addTouchListeners() {
 
 function onDown(ev) {
     const pos = getEvPos(ev)
-    console.log('onDown()');
-    console.log(pos, 'pos');
+    // console.log('onDown()');
+    // console.log(pos, 'pos');
     if (isLineClicked(pos) < 0) return
     setLineDrag(true)
     gStartPos = pos
@@ -42,13 +42,13 @@ function onDown(ev) {
 function onMove(ev) {
     console.log('onMove()');
     if (gDragLine) {
-        console.log('now drag')
+        // console.log('now drag')
         const pos = getEvPos(ev)
         const dx = pos.x - gStartPos.x
         const dy = pos.y - gStartPos.y
         moveLine(dx, dy)
         gStartPos = pos
-        console.log(gStartPos);
+        // console.log(gStartPos);
         renderMeme(gMemes[gCurrMemeIdx]);
     }
 }
@@ -60,7 +60,7 @@ function onUp() {
 }
 
 function getEvPos(ev) {
-    console.log(ev);
+    // console.log(ev);
     var pos = {
         x: ev.offsetX,
         y: ev.offsetY

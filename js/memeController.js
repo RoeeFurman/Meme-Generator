@@ -14,7 +14,7 @@ function renderMeme(meme) {
 }
 
 function onSetLineText() {
-    console.log('text changed');
+    // console.log('text changed');
     var eltxt = document.querySelector('.text-input');
     var text = eltxt.value;
     if (!gMemes[gCurrMemeIdx].lines.length) addLine();
@@ -24,7 +24,7 @@ function onSetLineText() {
 
 function drawImg(meme, lines) {
     var currLine = 0;
-    console.log(meme.selectedImgId, 'meme id')
+    // console.log(meme.selectedImgId, 'meme id')
     var currImg = getImgFromMemeIdx(meme)
     var img = new Image();
     img.src = currImg.url;
@@ -78,7 +78,7 @@ function onGetColor() {
 }
 
 function onChangeFontSize(diff) {
-    console.log('change font size', diff)
+    // console.log('change font size', diff)
 
     changeFontSize(diff);
     renderMeme(gMemes[gCurrMemeIdx])
@@ -173,16 +173,15 @@ function doFlexiblaMode() {
         randomMeme.lines[i].align = 'center';
     }
     gMemes[randomNum] = randomMeme;
-    console.log(randomMeme, 'random meme');
+    // console.log(randomMeme, 'random meme');
     return randomMeme;
 }
 
 function checkTextLength() {
     var randtext = makeLorem(4)
-    console.log(gCtx.measureText(randtext).width + 100, '<', gCanvas.width)
     while (gCtx.measureText(randtext).width + 200 > gCanvas.width) {
         randtext = makeLorem(4);
-        console.log(gCtx.measureText(randtext).width + 100, '<', gCanvas.width, 'new')
+        // console.log(gCtx.measureText(randtext).width + 100, '<', gCanvas.width, 'new')
     }
 
     return randtext
@@ -211,7 +210,6 @@ function doAlignText(val){
     alignText(val);
     renderMeme(gMemes[gCurrMemeIdx])
 }
-
 
 function doUploadImg(imgDataUrl, onSuccess) {
 

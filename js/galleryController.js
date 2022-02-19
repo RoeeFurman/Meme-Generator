@@ -21,11 +21,11 @@ function renderGallery(gSortBy) {
 }
 
 function onImgClicked(idx) {
-    console.log(idx, 'imgID');
+    // console.log(idx, 'imgID');
     var currMeme = getMemeIdxByPicId(idx);
-    console.log(currMeme, 'currMeme')
+    // console.log(currMeme, 'currMeme')
     gCurrMemeIdx = currMeme;
-    console.log(gCurrMemeIdx, 'gcurrMEMEidx');
+    // console.log(gCurrMemeIdx, 'gcurrMEMEidx');
     renderMeme(gMemes[currMeme]);
     closeGallery();
     clearInput()
@@ -54,7 +54,6 @@ function openGallery() {
 }
 
 function onFlexible() {
-    console.log('flexy');
     var randomMeme = doFlexiblaMode();
     renderMeme(randomMeme)
     closeGallery();

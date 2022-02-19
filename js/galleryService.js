@@ -70,6 +70,6 @@ function clearSaved() {
 
 function getImgFromMemeIdx(meme){
     var id = meme.selectedImgId;
-    console.log(id);
+    // console.log(id);
     return gImgs.find(img => img.id === id)
 }

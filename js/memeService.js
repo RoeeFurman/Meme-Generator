@@ -133,7 +133,7 @@ function getMeme() {
 function setLineText(value) {
     var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
 
-    console.log(gCurrMemeIdx);
+    // console.log(gCurrMemeIdx);
     gMemes[gCurrMemeIdx].lines[currLine].txt = value; //get position
     return
 }
@@ -144,8 +144,8 @@ function getMemeByPicId(picId) {
 
 function getMemeIdxByPicId(picId) {
     return gMemes.findIndex((meme) => {
-        console.log(meme.selectedImgId, 'meme.selectedImgId')
-        console.log(picId, 'picid')
+        // console.log(meme.selectedImgId, 'meme.selectedImgId')
+        // console.log(picId, 'picid')
         if (picId === meme.selectedImgId) return picId;
     })
 }
@@ -158,12 +158,12 @@ function changeColor(newColor) {
 }
 
 function changeFontSize(diff) {
-    console.log(diff)
+    // console.log(diff)
     var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
-    console.log(currLine);
+    // console.log(currLine);
     if (diff === '+') {
         gMemes[gCurrMemeIdx].lines[currLine].size += 2;
-        console.log(gMemes[gCurrMemeIdx].lines[currLine].size)
+        // console.log(gMemes[gCurrMemeIdx].lines[currLine].size)
     } else gMemes[gCurrMemeIdx].lines[currLine].size -= 2;
 
     return;
@@ -203,7 +203,7 @@ function addLine(val) {
 
     var newLine = { txt: text, size: 30, align: 'center', color: getRandomColor() };
     gMemes[gCurrMemeIdx].lines.push(newLine)
-    console.log(gMemes[gCurrMemeIdx].lines);
+    // console.log(gMemes[gCurrMemeIdx].lines);
 }
 
 function deleteLine() {
@@ -249,5 +249,5 @@ function alignText(val) {
     console.log(val);
     if (!gMemes[gCurrMemeIdx].lines.length) return
     gMemes[gCurrMemeIdx].lines[gCurrLine].align = val;
-    console.log(gMemes[gCurrMemeIdx].lines.align)
+    // console.log(gMemes[gCurrMemeIdx].lines.align)
 }
