@@ -1,7 +1,7 @@
 'use strict'
 
 var gSortBy;
-const gPopularKeywords = {cute: 2, funny: 5, dogs: 2, politics: 1, maggie: 10, sucsses: 1};
+const gPopularKeywords = {cute: 2, funny: 5, politics: 1, maggie: 10, sucsses: 1};
 
 function renderGallery(gSortBy) {
     var imgs = getImgsToShow(gSortBy);
@@ -114,7 +114,7 @@ function renderWordsToBar() {
     var strHtmls = '';
 
     for (const [key, value] of Object.entries(gPopularKeywords)) {
-        strHtmls += `<span style="font-size: ${value + 16}px; margin-left:1em">${key}</span>`
+        strHtmls += `<span style="font-size: ${value + 16}px; margin-left:1em" onclick="onSort('${key}')">${key}</span>`
     }
     elBar.innerHTML = strHtmls;
 }

@@ -120,6 +120,21 @@ var gMemes = [
     {
         selectedImgId: 19,
         selectedLineIdx: 0,
+        lines: [{ txt: 'I  love food', size: 40, align: 'center', color: 'white' }]
+    },
+    {
+        selectedImgId: 20,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  love food', size: 15, align: 'center', color: 'blue' }]
+    },
+    {
+        selectedImgId: 21,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  love food', size: 15, align: 'center', color: 'blue' }]
+    },
+    {
+        selectedImgId: 22,
+        selectedLineIdx: 0,
         lines: [{ txt: 'I  love food', size: 15, align: 'center', color: 'blue' }]
     },
 ]
