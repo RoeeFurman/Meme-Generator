@@ -46,6 +46,7 @@
     border-radius: 20px;
     vertical-align: middle;
     line-height: 2.5em;
+    cursor: pointer;
 }
 
 .gallery-grid img {
@@ -69,4 +70,18 @@
 
 .flexible:hover{
     background: linear-gradient(var(--clr9),var(--clr1));
+}
+
+.small-modal {
+    position: fixed;
+    top:10em;
+    right: 0;
+    width: 3em;
+    height: 3em;
+    background-color: var(--clr10);
+    border: solid 1px var(--clr1);
+    border-radius: 10px 0 0 10px ;
+    box-shadow: 0 0 5px var(--clr1); 
+    font-size:medium;
+    cursor: pointer;
 }

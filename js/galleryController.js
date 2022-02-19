@@ -4,18 +4,23 @@ var gSortBy;
 
 function renderGallery(gSortBy) {
     var imgs = getImgsToShow(gSortBy);
-    console.log(imgs)
+    console.log(gSortBy)
     // var gImgs = getimgs();
-
-    var strHtmls = imgs.map((img) => {
-        return `<img src="${img.url}" id="${img.id}" class="img ${img.id}" onclick="onImgClicked(${img.id})">`
-    });
-
-    document.querySelector('.gallery-grid').innerHTML = strHtmls.join('');
+    var strHtmls;
+    if (gSortBy === 'empty'){
+     strHtmls = 'Nothing saved';
+     document.querySelector('.gallery-grid').innerHTML = strHtmls;
+    } else {
+        strHtmls = imgs.map((img) => {
+            return `<img src="${img.url}" id="${img.id}" class="img ${img.id}" onclick="onImgClicked(${img.id})">`
+        });
+        
+        document.querySelector('.gallery-grid').innerHTML = strHtmls.join('');
+    }
 }
 
 
-function onImgClicked(idx){
+function onImgClicked(idx) {
     console.log(idx, 'imgID');
     var currMeme = getMemeIdxByPicId(idx);
     console.log(currMeme, 'currMeme')
@@ -26,17 +31,17 @@ function onImgClicked(idx){
     clearInput()
 }
 
-function closeGallery(){
+function closeGallery() {
     var elGallery = document.querySelector('.gallery-container');
     elGallery.classList.add('none')
 
     var elGalleryBtn = document.querySelector('.gallery');
     elGalleryBtn.classList.remove('clicked-btn');
-    
+
     openEditor();
 }
 
-function openGallery(){
+function openGallery() {
     renderGallery()
     var elGallery = document.querySelector('.gallery-container');
     elGallery.classList.remove('none');
@@ -48,7 +53,7 @@ function openGallery(){
 }
 
 
-function onFlexible(){
+function onFlexible() {
     console.log('flexy');
     var randomMeme = doFlexiblaMode();
     renderMeme(randomMeme)
@@ -56,7 +61,7 @@ function onFlexible(){
     openEditor();
 }
 
-function onSort(value){
+function onSort(value) {
     gSortBy = value;
     console.log(gSortBy)
     getImgsToShow(gSortBy);
@@ -64,10 +69,19 @@ function onSort(value){
 }
 
 
-function onGoToMyMemes(){
+function onGoToMyMemes() {
     console.log('going to saved memes')
     var savedMemes = getSavedImgs()
     console.log(savedMemes)
     getImgsToShow('saved');
     renderGallery('saved')
+}
+
+
+function onClearSaved() {
+    gSavedImgs = []
+    gSavedMemes = []
+    clearSaved()
+    gSortBy = 'empty'
+    renderGallery(gSortBy)
 }

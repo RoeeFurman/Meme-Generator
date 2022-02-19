@@ -55,3 +55,8 @@ function getSavedMemes() {
 function getSavedImgs() {
     return loadFromStorage('Saved Imgs');
 }
+
+function clearSaved() {
+    saveToStorage('Saved memes','')
+    saveToStorage('Saved Imgs','')
+}
