@@ -5,10 +5,6 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 
 function init() {
-    console.log('good luck');
-    console.log(gMemes[0], 'gMeme');
-    console.log(gMemes, 'gMemes');
-    console.log(gImgs, 'gImgs');
     renderMeme(gMemes[0])
     addListeners()
     openGallery()

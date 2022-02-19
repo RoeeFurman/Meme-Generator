@@ -37,9 +37,6 @@
 
 }
 
-
-
-
 @media (min-width:420px){
 
     .main-header{
@@ -117,6 +114,10 @@
         background: var(--clr6); 
       }
 
+      .sec-nav{
+        flex-direction: column;
+    }
+
 }
 
 @media (min-width:1600px){
@@ -124,4 +125,11 @@
 .gallery-grid{
     max-width: 90%;
 }
+}
+
+@media (min-width:1200px){
+    .sec-nav{
+        flex-direction: row;
+    }
+
 }
