@@ -13,26 +13,12 @@ function init() {
     addListeners()
     openGallery()
     renderGallery(gSortBy)
-
-    // resizeCanvas() // responsive
-    
-    // window.addEventListener('resize', () => {
-    //     console.log('resized')
-    //     resizeCanvas()
-
-    //     renderMeme(gMemes[gCurrMemeIdx])
-    //     // Debouncing?..
-    //     //   drawText('Nothing like a good stretch ' + Date.now(), 0, 225)
-    // })
+    renderWordsToBar()
 }
 
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
-    // window.addEventListener('resize', () => {
-    //     resizeCanvas()
-    //     renderCanvas()
-    // })
 }
 
 function addMouseListeners() {
@@ -59,7 +45,6 @@ function onDown(ev) {
 
 function onMove(ev) {
     console.log('onMove()');
-    // const circle = getCircle();
     if (gDragLine) {
         console.log('now drag')
         const pos = getEvPos(ev)

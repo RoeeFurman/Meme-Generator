@@ -6,8 +6,6 @@ var gStartPos;
 var gSavedMemes = [];
 var gSavedImgs = [];
 
-// var gAddLine = 0;
-
 var gMemes = [
     {
         selectedImgId: 1,
@@ -119,10 +117,14 @@ var gMemes = [
         selectedLineIdx: 0,
         lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
     },
+    {
+        selectedImgId: 19,
+        selectedLineIdx: 0,
+        lines: [{ txt: 'I  love food', size: 15, align: 'center', color: 'blue' }]
+    },
 ]
 
 function getMeme() {
-    // get meme - update
     return gMeme;
 }
 
@@ -133,10 +135,6 @@ function setLineText(value) {
     gMemes[gCurrMemeIdx].lines[currLine].txt = value; //get position
     return
 }
-
-// function setImg() {
-//     //todo
-// }
 
 function getMemeByPicId(picId) {
     return gMemes.find((meme) => picId === meme.selectedImgId)
@@ -180,8 +178,6 @@ function canvasClicked(ev) {
     var lines = gMemes[gCurrMemeIdx].lines;
 
     const clickedLineIdx = lines.findIndex(line =>
-        // ev.offsetX >= line.x && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
-        // ev.offsetY >= line.y - line.size && ev.offsetY <= line.y
         ev.offsetX >= 0 && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
         ev.offsetY >= line.y - line.size && ev.offsetY <= line.y
     )
@@ -212,12 +208,7 @@ function deleteLine() {
     var lines = gMemes[gCurrMemeIdx].lines;
     console.log(lines)
     var currMeme = gMemes[gCurrMemeIdx].selectedLineIdx;
-    // lines[currMeme].txt = '';
     lines.splice(currMeme, 1)
-}
-
-function saveEmoji() {
-
 }
 
 function setLineDrag(isDrag) {
@@ -246,15 +237,15 @@ function saveMeme() {
     gSavedMemes.push(gMemes[gCurrMemeIdx]);
     var currImgIdx = gMemes[gCurrMemeIdx].selectedImgId;
     gImgs.forEach(img => {
-        if (img.id ===currImgIdx) gSavedImgs.unshift(img)
+        if (img.id === currImgIdx) gSavedImgs.unshift(img)
     })
     console.log(gSavedMemes)
-    console.log(gSavedImgs,'saved imgs')
+    console.log(gSavedImgs, 'saved imgs')
 }
 
-function alignText(val){
+function alignText(val) {
     console.log(val);
-    if(!gMemes[gCurrMemeIdx].lines.length) return
+    if (!gMemes[gCurrMemeIdx].lines.length) return
     gMemes[gCurrMemeIdx].lines[gCurrLine].align = val;
     console.log(gMemes[gCurrMemeIdx].lines.align)
 }

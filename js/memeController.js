@@ -10,7 +10,6 @@ gCtx = gCanvas.getContext('2d');
 
 
 function renderMeme(meme) {
-    // console.log('hello')
     drawImg(meme, meme.lines);
 }
 
@@ -26,10 +25,9 @@ function onSetLineText() {
 function drawImg(meme, lines) {
     var currLine = 0;
     console.log(meme.selectedImgId, 'meme id')
-    var id = meme.selectedImgId;
+    var currImg = getImgFromMemeIdx(meme)
     var img = new Image();
-    img.src = `img/${id}.jpg`;
-    // console.log(lines[0].txt);
+    img.src = currImg.url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         lines.forEach(line => {
@@ -41,7 +39,6 @@ function drawImg(meme, lines) {
 }
 
 function drawText(currLine, meme, txt) {
-    // console.log(!meme.lines[currLine].x)
     if(!meme.lines[currLine].x && !meme.lines[currLine].y){
         var x;
         var y;
@@ -66,7 +63,7 @@ function drawText(currLine, meme, txt) {
     gCtx.strokeStyle = 'black';
     gCtx.textAlign = meme.lines[currLine].align;
     gCtx.fillStyle = meme.lines[currLine].color;
-    gCtx.font = `${meme.lines[currLine].size}px arial`; //TODO: add font
+    gCtx.font = `${meme.lines[currLine].size}px arial`; 
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
 
@@ -89,7 +86,6 @@ function onChangeFontSize(diff) {
 
 function onSwitchline() {
     var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
-    // console.log(gMemes[gCurrMemeIdx].lines.length-1, 'this');
     if (currLine < gMemes[gCurrMemeIdx].lines.length - 1) {
         gMemes[gCurrMemeIdx].selectedLineIdx++;
         console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
@@ -98,14 +94,8 @@ function onSwitchline() {
 
     currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
 
-    // console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
 
     openModal(gMemes[gCurrMemeIdx].lines[currLine]);
-
-    // if (gCurrLine < gMemes[gCurrMemeIdx].lines.length - 1) gCurrLine++;
-    // else (gCurrLine = 0)
-    // console.log('new line', gCurrLine)
-
 }
 
 function onCanvasClicked(event) {
@@ -117,7 +107,6 @@ function openModal(currMeme) {
 
     var x = currMeme.x;
     var y = currMeme.y;
-    // var textLength = gCtx.measureText(currMeme.txt).width;
     var height = currMeme.size;
 
     renderTextToInput(currMeme.txt);
@@ -129,21 +118,6 @@ function openModal(currMeme) {
 
     elModal.hidden = false
 }
-
-// function openModal(x, y, length, height) {
-//     console.log(length)
-//     console.log(x, y, length, height);
-//     // TODO: open the modal with the given text in the given coordinates 
-//     // (style.top = style.left = 18 + 'px')
-//     const elModal = document.querySelector('.modal')
-//     elModal.style.top = y - height + 'px'
-//     elModal.style.left = 0 + 'px'
-//     elModal.style.height = height * 2 + 'px'
-//     // elModal.style.width = 380 +'px'
-//     // const msg = `${starName} is ${starRate}% awesome`
-//     // elModal.innerText = msg
-//     elModal.hidden = false
-// }
 
 function closeModal() {
     const elModal = document.querySelector('.modal')

@@ -20,6 +20,7 @@
 
     .top-search-words{
         font-size: .6em;
+        display: none;
     }
 
     .tools{

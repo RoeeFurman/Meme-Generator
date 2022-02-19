@@ -1,25 +1,24 @@
 'use strict'
 
 var gSortBy;
+const gPopularKeywords = {cute: 2, funny: 5, dogs: 2, politics: 1, maggie: 10, sucsses: 1};
 
 function renderGallery(gSortBy) {
     var imgs = getImgsToShow(gSortBy);
-    console.log(gSortBy)
-    // var gImgs = getimgs();
+
     var strHtmls;
-    if (gSortBy === 'empty'){
-     strHtmls = '<br> No saved Memes';
-     closeSmallModal()
-     document.querySelector('.gallery-grid').innerHTML = strHtmls;
+    if (gSortBy === 'empty') {
+        strHtmls = '<br> No saved Memes';
+        closeSmallModal()
+        document.querySelector('.gallery-grid').innerHTML = strHtmls;
     } else {
         strHtmls = imgs.map((img) => {
             return `<img src="${img.url}" id="${img.id}" class="img ${img.id}" onclick="onImgClicked(${img.id})">`
         });
-        
+
         document.querySelector('.gallery-grid').innerHTML = strHtmls.join('');
     }
 }
-
 
 function onImgClicked(idx) {
     console.log(idx, 'imgID');
@@ -54,7 +53,6 @@ function openGallery() {
     closeEditor();
 }
 
-
 function onFlexible() {
     console.log('flexy');
     var randomMeme = doFlexiblaMode();
@@ -65,17 +63,25 @@ function onFlexible() {
 
 function onSort(value) {
     gSortBy = value;
-    console.log(gSortBy)
-    getImgsToShow(gSortBy);
-    renderGallery(gSortBy)
+    if (keywords.includes(value)) {
+
+        if (value) {
+            if (gPopularKeywords[gSortBy]) gPopularKeywords[gSortBy]++
+            else gPopularKeywords[gSortBy] = 1;
+        }
+        renderWordsToBar();
+        getImgsToShow(gSortBy);
+        renderGallery(gSortBy)
+    }
 }
+
 
 function onGoToMyMemes() {
     var elGalleryBtn = document.querySelector('.gallery');
     elGalleryBtn.classList.remove('clicked-btn');
 
     var savedMemes = getSavedImgs()
-    if(!savedMemes) renderGallery('empty')
+    if (!savedMemes) renderGallery('empty')
     else {
         openSmallModal()
         console.log('going to saved memes')
@@ -93,13 +99,22 @@ function onClearSaved() {
     renderGallery(gSortBy)
 }
 
-function openSmallModal(){
+function openSmallModal() {
     var elClearBtm = document.querySelector('.small-modal');
     elClearBtm.classList.remove('none')
 }
 
-function closeSmallModal(){
+function closeSmallModal() {
     var elClearBtm = document.querySelector('.small-modal');
     elClearBtm.classList.add('none')
 }
 
+function renderWordsToBar() {
+    var elBar = document.querySelector('.top-search-words');
+    var strHtmls = '';
+
+    for (const [key, value] of Object.entries(gPopularKeywords)) {
+        strHtmls += `<span style="font-size: ${value + 16}px; margin-left:1em">${key}</span>`
+    }
+    elBar.innerHTML = strHtmls;
+}

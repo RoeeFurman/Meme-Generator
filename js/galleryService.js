@@ -3,6 +3,7 @@
 var gImgsToShow = [];
 
 var gImgs = [
+    { id: 19, url: 'img/19.jpeg', keywords: ['funny', 'dogs', 'maggie'] },
     { id: 1, url: 'img/1.jpg', keywords: ['funny', 'trump', 'politics'] },
     { id: 2, url: 'img/2.jpg', keywords: ['funny', 'dogs', 'dog', 'two', 'love'] },
     { id: 3, url: 'img/3.jpg', keywords: ['funny', 'dogs', 'dog', 'baby', 'two', 'cute'] },
@@ -22,6 +23,10 @@ var gImgs = [
     { id: 17, url: 'img/17.jpg', keywords: ['funny', 'politics', 'putin', 'two'] },
     { id: 18, url: 'img/18.jpg', keywords: ['funny', 'toys', 'toy story', 'budd'] }
 ];
+
+var keywords = ["funny","maggie", "dogs", "dog", "love", "politics", "trump", "obama", "baby", "cute", "cat", "computer", "sleep", "power", "sucsses", "curious",
+    "shock", "man", "men", "bizar", "evil", "laughing", "sport", "cheers", "drink", "leonardo", "matrix", "sunglasses", "bald", "putin",
+    "two", "toys", "toy story", "budd", "bald"]
 
 function getImgById(id) {
     return gImgs.find((img) => id === img.id)
@@ -43,7 +48,6 @@ function getImgsToShow(value) {
             })
         })
     }
-    console.log(gImgsToShow)
     return (gImgsToShow);
 }
 
@@ -57,6 +61,12 @@ function getSavedImgs() {
 }
 
 function clearSaved() {
-    saveToStorage('Saved memes','')
-    saveToStorage('Saved Imgs','')
+    saveToStorage('Saved memes', '')
+    saveToStorage('Saved Imgs', '')
+}
+
+function getImgFromMemeIdx(meme){
+    var id = meme.selectedImgId;
+    console.log(id);
+    return gImgs.find(img => img.id === id)
 }
