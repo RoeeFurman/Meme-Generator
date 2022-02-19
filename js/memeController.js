@@ -204,7 +204,7 @@ function doFlexiblaMode() {
 }
 
 function checkTextLength() {
-    var randtext = makeLorem(4);
+    var randtext = makeLorem(4)
     console.log(gCtx.measureText(randtext).width + 100, '<', gCanvas.width)
     while (gCtx.measureText(randtext).width + 200 > gCanvas.width) {
         randtext = makeLorem(4);
@@ -212,4 +212,11 @@ function checkTextLength() {
     }
 
     return randtext
+}
+
+function onSaveMeme(){
+    console.log('saving....')
+    saveMeme();
+    saveToStorage('Saved memes', gSavedMemes)
+    saveToStorage('Saved Imgs', gSavedImgs)
 }

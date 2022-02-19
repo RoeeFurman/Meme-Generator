@@ -4,22 +4,18 @@
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 
-
-
 function init() {
     console.log('good luck');
     console.log(gMemes[0], 'gMeme');
     console.log(gMemes, 'gMemes');
     console.log(gImgs, 'gImgs');
     renderMeme(gMemes[0])
-    openGallery()
-    // openEditor()
-    // closeGallery()
     addListeners()
+    openGallery()
+    renderGallery(gSortBy)
 
     // resizeCanvas() // responsive
-    renderGallery()
-
+    
     // window.addEventListener('resize', () => {
     //     console.log('resized')
     //     resizeCanvas()

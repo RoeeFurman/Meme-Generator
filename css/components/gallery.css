@@ -10,12 +10,12 @@
     /* display: none; */
 }
 
+
 .sec-nav{
     width: 95%;
     margin-top: .5em;
     align-items: center;
 }
-
 
 .search-bar{
     flex-grow: 1;
@@ -42,7 +42,7 @@
     color: var(--clr8);
     display: inline-block;
     height:2.5em;
-    width: 5em;
+    width: 7em;
     border-radius: 20px;
     vertical-align: middle;
     line-height: 2.5em;

@@ -1,6 +1,6 @@
 'use strict';
 
-function saveMemeToStorage(key, val) {
+function saveToStorage(key, val) {
     localStorage.setItem(key, JSON.stringify(val))
 }
 

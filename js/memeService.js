@@ -3,6 +3,8 @@
 var gDragLine = false;
 var gCurrMemeIdx = 0;
 var gStartPos;
+var gSavedMemes = [];
+var gSavedImgs = [];
 
 // var gAddLine = 0;
 
@@ -195,11 +197,10 @@ function canvasClicked(ev) {
     }
 }
 
-
 function addLine(val) {
     var text;
 
-    if(val ==='emoji') text = '💥'
+    if (val === 'emoji') text = '💥'
     else text = 'new line here'
 
     var newLine = { txt: text, size: 30, align: 'center', color: getRandomColor() };
@@ -212,10 +213,10 @@ function deleteLine() {
     console.log(lines)
     var currMeme = gMemes[gCurrMemeIdx].selectedLineIdx;
     // lines[currMeme].txt = '';
-    lines.splice(currMeme,1)
+    lines.splice(currMeme, 1)
 }
 
-function saveEmoji(){
+function saveEmoji() {
 
 }
 
@@ -228,7 +229,7 @@ function isLineClicked(clickedPos) {
     var lines = gMemes[gCurrMemeIdx].lines;
     console.log(lines)
 
-    var lineIdxToDrag = lines.findIndex(line => 
+    var lineIdxToDrag = lines.findIndex(line =>
         (Math.abs(clickedPos.y - line.y) <= 50))
 
     gMemes[gCurrMemeIdx].selectedLineIdx = lineIdxToDrag;
@@ -239,4 +240,14 @@ function moveLine(dx, dy) {
     var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
     gMemes[gCurrMemeIdx].lines[currLine].x += dx
     gMemes[gCurrMemeIdx].lines[currLine].y += dy
+}
+
+function saveMeme() {
+    gSavedMemes.push(gMemes[gCurrMemeIdx]);
+    var currImgIdx = gMemes[gCurrMemeIdx].selectedImgId;
+    gImgs.forEach(img => {
+        if (img.id ===currImgIdx) gSavedImgs.unshift(img)
+    })
+    console.log(gSavedMemes)
+    console.log(gSavedImgs,'saved imgs')
 }

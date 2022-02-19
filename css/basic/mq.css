@@ -59,12 +59,13 @@
         max-width: 80%;
         margin-top: 1em;
     }
-
+    
 
     .gallery-grid img {
         height: 10em !important;
+        
         /* border-radius: 20px; */
-        max-width: 70%;
+        max-width: 100%;
     }
     
     .tools{
@@ -93,4 +94,31 @@
         margin-bottom: 0.7em;
     }
 
+    ::-webkit-scrollbar {
+        width: 20px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px var(--clr8); 
+        background: var(--clr7);
+        /* border-radius: 10px; */
+      }
+       
+    
+      ::-webkit-scrollbar-thumb {
+        background: var(--clr2); 
+        border-radius: 10px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--clr6); 
+      }
+
+}
+
+@media (min-width:1600px){
+
+.gallery-grid{
+    max-width: 80%;
+}
 }

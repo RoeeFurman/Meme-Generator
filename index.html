@@ -46,6 +46,7 @@
                 <div class="others">
                     <button class="share" >Share</button>
                     <button class="download"><a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a></button>
+                    <button class="save" onclick="onSaveMeme()">Save</button>
                     </div>
             </div>
         </div>
@@ -53,12 +54,49 @@
         <div class="gallery-container flex align-center main-layout">
             <div class="sec-nav flex space-between">
                 <div class="third-nav flex align-center space-between">
-                    <input type="search" class="search-bar flex" placeholder="Search">
+                    <input list="search" class="search-bar flex" placeholder="Search" oninput="onSort(this.value)">
+                    <datalist id="search" class="search-options">
+                        <option value="funny">funny</option>
+                        <option value="dogs">dogs</option>
+                        <option value="dog">dog</option>
+                        <option value="love">love</option>
+                        <option value="politics">politics</option>
+                        <option value="trump">trump</option>
+                        <option value="obama">obama</option>
+                        <option value="baby">baby</option>
+                        <option value="cute">cute</option>
+                        <option value="cat">cat</option>
+                        <option value="computer">computer</option>
+                        <option value="sleep">sleep</option>
+                        <option value="power">power</option>
+                        <option value="sucsses">sucsses</option>
+                        <option value="curious">curious</option>
+                        <option value="shock">shock</option>
+                        <option value="man">man</option>
+                        <option value="men">men</option>
+                        <option value="bizar">bizar</option>
+                        <option value="evil">evil</option>
+                        <option value="laughing">laughing</option>
+                        <option value="sport">sport</option>
+                        <option value="cheers">cheers</option>
+                        <option value="drink">drink</option>
+                        <option value="leonardo">leonardo</option>
+                        <option value="matrix">matrix</option>
+                        <option value="sunglasses">sunglasses</option>
+                        <option value="bald">bald</option>
+                        <option value="putin">putin</option>
+                        <option value="two">two</option>
+                        <option value="toys">toys</option>
+                        <option value="toy story">toy story</option>
+                        <option value="budd">budd</option>
+                        <option value="bald">bald</option>
+                    </datalist>
+
                     <span class="top-search-words flex">words in random</span>
                 </div>
                 <div class="third-nav flex align-center space-between">
                     <div class="flexible" onclick="onFlexible()">Im flexible</div>
-                    <span class="more flex">MORE</span>
+                    <span class="more flex" onclick="onGoToMyMemes()">My Memes</span>
                 </div>
             </div>
             <div class="gallery-grid">
@@ -71,6 +109,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/util.service.js"></script>
+    <script src="js/storage.service.js"></script>
     <script src="js/memeController.js"></script>
     <script src="js/memeService.js"></script>
     <script src="js/galleryController.js"></script>

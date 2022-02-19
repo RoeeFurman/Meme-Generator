@@ -1,27 +1,14 @@
 'use strict'
 
+var gSortBy;
 
-function renderGallery() {
-    var imgs = gImgs;
-    
+function renderGallery(gSortBy) {
+    var imgs = getImgsToShow(gSortBy);
+    console.log(imgs)
     // var gImgs = getimgs();
 
     var strHtmls = imgs.map((img) => {
         return `<img src="${img.url}" id="${img.id}" class="img ${img.id}" onclick="onImgClicked(${img.id})">`
-                
-        // `<tr>
-        // <td class="book-id">${book.id}</td>
-        // <td class="book-name">${book.name}</td>
-        // <td class="book-price" data-price="${book.price}">
-        //            ${getConvertedCurr(book.price)}
-        //         </td>
-        //         <td><button class="btn-read" data-trans="read" onclick="onReadBook('${book.id
-        //     }')">${getTrans('read')}</button></td>
-        //         <td><button class="btn-update" data-trans="update" onclick="onUpdateBook('${book.id
-        //     }')">${getTrans('update')}</button></td>
-        //         <td><button class="btn-delete" data-trans="delete" onclick="onRemoveBook('${book.id
-        //     }')">${getTrans('delete')}</button></td>
-        //         </td>`;
     });
 
     document.querySelector('.gallery-grid').innerHTML = strHtmls.join('');
@@ -50,6 +37,7 @@ function closeGallery(){
 }
 
 function openGallery(){
+    renderGallery()
     var elGallery = document.querySelector('.gallery-container');
     elGallery.classList.remove('none');
 
@@ -66,4 +54,20 @@ function onFlexible(){
     renderMeme(randomMeme)
     closeGallery();
     openEditor();
+}
+
+function onSort(value){
+    gSortBy = value;
+    console.log(gSortBy)
+    getImgsToShow(gSortBy);
+    renderGallery(gSortBy)
+}
+
+
+function onGoToMyMemes(){
+    console.log('going to saved memes')
+    var savedMemes = getSavedImgs()
+    console.log(savedMemes)
+    getImgsToShow('saved');
+    renderGallery('saved')
 }
