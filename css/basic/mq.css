@@ -4,10 +4,14 @@
 @media (max-width:420px){
     .meme-editor{
         flex-direction: column;
-        background: url(../../img/bg.png);
-        background-size: 180%;    
     }
-
+    
+    .gallery-bg{
+        background: url(../../img/bg.png);
+        background-repeat: no-repeat;
+        background-size:200%;    
+        height: 98vh;
+    }
     .gallery-grid img {
         height: 5em !important;
         border-radius: 20px;
@@ -41,7 +45,6 @@
 
 @media (min-width:420px){
 
-
     .main-header{
         max-width: 80%;
         margin-top: 1em;
@@ -69,8 +72,9 @@
     }
     
     .tools{
-        width: 50%;
+        width: 40%;
         margin-left: 2em;
+        max-width: 70%;
         align-items: center;
         height: 250px;
         justify-content: space-between;
@@ -83,11 +87,15 @@
         margin: auto;
     }
 
-        .text-editor{
+    .emojis{
+        font-size: 1.5em;
+    }
+
+    .text-editor{
         vertical-align: middle;
         line-height: 3em;
         width: 70%;
-        padding: 0 10px;
+        padding: 3px 10px;
     }
 
     .share {

@@ -8,7 +8,7 @@ function renderGallery(gSortBy) {
     // var gImgs = getimgs();
     var strHtmls;
     if (gSortBy === 'empty'){
-     strHtmls = 'No saved Memes';
+     strHtmls = '<br> No saved Memes';
      closeSmallModal()
      document.querySelector('.gallery-grid').innerHTML = strHtmls;
     } else {
@@ -70,7 +70,6 @@ function onSort(value) {
     renderGallery(gSortBy)
 }
 
-
 function onGoToMyMemes() {
     var elGalleryBtn = document.querySelector('.gallery');
     elGalleryBtn.classList.remove('clicked-btn');
@@ -85,7 +84,6 @@ function onGoToMyMemes() {
         renderGallery('saved')
     }
 }
-
 
 function onClearSaved() {
     gSavedImgs = []

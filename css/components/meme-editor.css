@@ -19,7 +19,7 @@
 #my-canvas{
     background-color: aliceblue;
     margin-top: 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     border-radius: 15px;
     border: 1px solid var(--clr7);
 }
@@ -37,9 +37,10 @@
 }
 
 .text-input{
+    height: 2.5em;
     width: 80%;
     border-radius: 20px;
-    margin: 0.7em 0;
+    margin: 0.5em 0 0.4em 0;
 }
 
 .color-input{
@@ -57,6 +58,7 @@
 .text-editor{
     background-color: var(--clr15);
     border-radius: 20px;
+    box-shadow: 0 0 10px var(--clr5);
 }
 
 .switch-lines{
@@ -72,12 +74,13 @@
 
 .emojis{
     background-color: var(--clr14);
-    width: 11em;
+    max-width: 10em;
+    min-width: 9em;
     border: solid 1px var(--clr1);
-    margin-bottom: .7em;
     /* height: 2.2em; */
     cursor: pointer;
     border-radius: 20px;
+    box-shadow: 0 0 10px var(--clr5);
 }
 
 .delete-lines{
