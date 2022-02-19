@@ -10,8 +10,12 @@ button {
     font-family: poppinsMed;
 }
 
-html {
+body{
     background: linear-gradient(var(--clr13),var(--clr10));
+
+}
+
+html {
     width: 100%;
     background-repeat: no-repeat;
     height: 100%;

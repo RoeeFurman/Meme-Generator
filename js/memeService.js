@@ -10,25 +10,18 @@ var gMemes = [
     {
         selectedImgId: 1,
         selectedLineIdx: 0,
-        lines: [
-            // { txt: 'I am trump', size: 25, align: 'center', color: 'blue' },
-            // { txt: 'I sometimes eat shakshuka', size: 25, align: 'center', color: 'green' }
-        ]
+        lines: []
     },
     {
         selectedImgId: 2,
         selectedLineIdx: 0,
         lines: [
-            { txt: 'sometimes eat ', size: 25, align: 'right', color: 'blue' },
-            { txt: 'I shakshuka', size: 25, align: 'left', color: 'green' }
         ]
     },
     {
         selectedImgId: 3,
         selectedLineIdx: 0,
         lines: [
-            // { txt: 'sometimes eat ', size: 25, align: 'center', color: 'blue' },
-            // { txt: 'I shakshuka', size: 25, align: 'center', color: 'green' }
         ]
     },
     {
@@ -43,16 +36,12 @@ var gMemes = [
         selectedImgId: 5,
         selectedLineIdx: 0,
         lines: [
-            { txt: 'I  eat Falafel', size: 38, align: 'center', color: 'blue' },
-            { txt: 'I love shakshuka', size: 30, align: 'center', color: 'red' },
         ]
     },
     {
         selectedImgId: 6,
         selectedLineIdx: 0,
         lines: [
-            // { txt: 'I  eat Falafel', size: 38, align: 'center', color: 'blue' },
-            // { txt: 'I love shakshuka', size: 30, align: 'center', color: 'red' },
         ]
     },
     {
@@ -84,58 +73,56 @@ var gMemes = [
         selectedImgId: 12,
         selectedLineIdx: 0,
         lines: []
-        // lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
     },
     {
         selectedImgId: 13,
         selectedLineIdx: 0,
         lines: []
-        // lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
     },
     {
         selectedImgId: 14,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 15,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 16,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 17,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 18,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  Falafel', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 19,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  love food', size: 40, align: 'center', color: 'white' }]
+        lines: []
     },
     {
         selectedImgId: 20,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  love food', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 21,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  love food', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
     {
         selectedImgId: 22,
         selectedLineIdx: 0,
-        lines: [{ txt: 'I  love food', size: 15, align: 'center', color: 'blue' }]
+        lines: []
     },
 ]
 

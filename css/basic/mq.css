@@ -4,18 +4,14 @@
 @media (max-width:420px){
     .meme-editor{
         flex-direction: column;
-    }
-    
-    .gallery-bg{
         background: url(../../img/bg.png);
-        background-repeat: no-repeat;
         background-size:200%;    
-        height: 98vh;
+        height: 90vh;
     }
+
     .gallery-grid img {
         height: 5em !important;
         border-radius: 20px;
-        margin: .5em;
     }
 
     .top-search-words{
@@ -67,9 +63,7 @@
 
     .gallery-grid img {
         height: 9em !important;
-        
-        /* border-radius: 20px; */
-        max-width: 100%;
+        border-radius: 20px;
     }
     
     .tools{
