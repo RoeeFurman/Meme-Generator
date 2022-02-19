@@ -25,6 +25,37 @@ a{
     text-decoration: none;
 }
 
+.masseges{
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    height: 9.5em;
+    font-size: .9em;
+    width: 330px;
+    border-radius: 2em;
+    background-color: var(--clr10);
+    border: solid 1px var(--clr1);
+    box-shadow: 0 0 20px var(--clr5);
+    padding: .5em;
+}
+
+.close-btn{
+    background-color: var(--clr7);
+    width: 1.7em;
+    height: 1.7em;
+    display:inline-block;
+    border: 1px solid var(--clr1);
+    margin-bottom: 1.5em;
+    cursor: pointer;
+    border-radius: 0.1em;
+    font-weight: bolder;
+}
+
+a {
+    color: var(--clr8);
+}
+
 
 /* 
 html {
@@ -43,9 +74,7 @@ img {
     width: 100%;
 }
 
-a {
-    color: var(--clr2);
-}
+
 
 a:hover {
     text-decoration: none;

@@ -37,19 +37,28 @@
                 <div class="text-editor flex align-center">
                     <button class="font-size-change" onclick="onChangeFontSize('+')">A+</button> 
                     <button class="font-size-change" onclick="onChangeFontSize('-')">A-</button>
-                    <button class="underling">U</button>            
-                    <button class="text-align">⨌</button>
-                    <button class="text-align">⨌</button>
+                    <button class="text-align" onclick="doAlignText('right')"><img src="img/al.png"></button>
+                    <button class="text-align" onclick="doAlignText('left')"><img src="img/ar.png"></button>
                     <input type="color" class="color-input" name="user-background-color" oninput="onGetColor()">
                 </div>
-                <div class="emojis" onclick="onAddLine('emoji')">😁🥰😇😼😎😋</div>
+                <div class="emojis">
+                    <span onclick="onAddLine('😁')">😁</span>
+                    <span onclick="onAddLine('🥰')">🥰</span>
+                    <span onclick="onAddLine('😇')">😇</span>
+                    <span onclick="onAddLine('😎')">😎</span>
+                    <span onclick="onAddLine('😋')">😋</span>
+                    </div>
                 <div class="others">
-                    <button class="share" >Share</button>
+                    <button class="share" onclick="uploadImg()">Share</button>
                     <button class="download"><a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a></button>
                     <button class="save" onclick="onSaveMeme()">Save</button>
-                    </div>
+                </div>
             </div>
         </div>
+        <div class="masseges none">
+                <div class="share-container"></div>
+                <div class="user-msg"></div>
+            </div>
 
         <div class="gallery-container flex align-center main-layout">
             <div class="sec-nav flex space-between">
@@ -97,7 +106,7 @@
                 <div class="third-nav flex align-center space-between">
                     <div class="flexible" onclick="onFlexible()">Im flexible</div>
                     <span class="more flex" onclick="onGoToMyMemes()">My Memes</span>
-                    <div class="small-modal" onclick="onClearSaved()">Clear All</div>
+                    <div class="small-modal none" onclick="onClearSaved()">Clear All</div>
                 </div>
             </div>
             <div class="gallery-grid">
@@ -109,6 +118,7 @@
 
 
     <script src="js/main.js"></script>
+    <script src="js/upload-service.js"></script>
     <script src="js/util.service.js"></script>
     <script src="js/storage.service.js"></script>
     <script src="js/memeController.js"></script>

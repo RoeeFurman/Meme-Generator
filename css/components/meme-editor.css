@@ -114,3 +114,14 @@
     margin-bottom: 1em;
 }
 
+.text-align{
+    padding-top: 5px;
+}
+
+.font-size-change{
+    padding: 3px 5px 
+}
+
+.text-align img {
+    height: 1em;
+}

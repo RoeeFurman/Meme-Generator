@@ -10,7 +10,7 @@ gCtx = gCanvas.getContext('2d');
 
 
 function renderMeme(meme) {
-    console.log('hello')
+    // console.log('hello')
     drawImg(meme, meme.lines);
 }
 
@@ -219,4 +219,21 @@ function onSaveMeme(){
     saveMeme();
     saveToStorage('Saved memes', gSavedMemes)
     saveToStorage('Saved Imgs', gSavedImgs)
+}
+
+function closeMsg(){
+    var elGallery = document.querySelector('.masseges');
+    elGallery.classList.add('none');
+}
+
+function openMsg(){
+    var elGallery = document.querySelector('.masseges');
+    elGallery.classList.remove('none');
+}
+
+function doAlignText(val){
+    console.log(val);
+
+    alignText(val);
+    renderMeme(gMemes[gCurrMemeIdx])
 }

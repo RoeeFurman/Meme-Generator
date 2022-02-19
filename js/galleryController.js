@@ -8,7 +8,8 @@ function renderGallery(gSortBy) {
     // var gImgs = getimgs();
     var strHtmls;
     if (gSortBy === 'empty'){
-     strHtmls = 'Nothing saved';
+     strHtmls = 'No saved Memes';
+     closeSmallModal()
      document.querySelector('.gallery-grid').innerHTML = strHtmls;
     } else {
         strHtmls = imgs.map((img) => {
@@ -42,6 +43,7 @@ function closeGallery() {
 }
 
 function openGallery() {
+    closeSmallModal()
     renderGallery()
     var elGallery = document.querySelector('.gallery-container');
     elGallery.classList.remove('none');
@@ -70,11 +72,18 @@ function onSort(value) {
 
 
 function onGoToMyMemes() {
-    console.log('going to saved memes')
+    var elGalleryBtn = document.querySelector('.gallery');
+    elGalleryBtn.classList.remove('clicked-btn');
+
     var savedMemes = getSavedImgs()
-    console.log(savedMemes)
-    getImgsToShow('saved');
-    renderGallery('saved')
+    if(!savedMemes) renderGallery('empty')
+    else {
+        openSmallModal()
+        console.log('going to saved memes')
+        console.log(savedMemes)
+        getImgsToShow('saved');
+        renderGallery('saved')
+    }
 }
 
 
@@ -85,3 +94,14 @@ function onClearSaved() {
     gSortBy = 'empty'
     renderGallery(gSortBy)
 }
+
+function openSmallModal(){
+    var elClearBtm = document.querySelector('.small-modal');
+    elClearBtm.classList.remove('none')
+}
+
+function closeSmallModal(){
+    var elClearBtm = document.querySelector('.small-modal');
+    elClearBtm.classList.add('none')
+}
+

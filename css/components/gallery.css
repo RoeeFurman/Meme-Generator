@@ -7,9 +7,9 @@
     flex-direction: column;
     margin-top: 0.8em;
     border: 1px solid var(--clr7);
+    min-height: 15em;
     /* display: none; */
 }
-
 
 .sec-nav{
     width: 95%;

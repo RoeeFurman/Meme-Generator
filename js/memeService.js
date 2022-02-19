@@ -200,7 +200,7 @@ function canvasClicked(ev) {
 function addLine(val) {
     var text;
 
-    if (val === 'emoji') text = '💥'
+    if (val !== 'line') text = val
     else text = 'new line here'
 
     var newLine = { txt: text, size: 30, align: 'center', color: getRandomColor() };
@@ -250,4 +250,11 @@ function saveMeme() {
     })
     console.log(gSavedMemes)
     console.log(gSavedImgs,'saved imgs')
+}
+
+function alignText(val){
+    console.log(val);
+    if(!gMemes[gCurrMemeIdx].lines.length) return
+    gMemes[gCurrMemeIdx].lines[gCurrLine].align = val;
+    console.log(gMemes[gCurrMemeIdx].lines.align)
 }
