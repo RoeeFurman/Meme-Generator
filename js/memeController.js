@@ -10,8 +10,8 @@ gCanvas = document.getElementById('my-canvas');
 gCtx = gCanvas.getContext('2d');
 
 function renderMeme(meme) {
-    console.log(gCurrLine,'gcurrline')
-    console.log(gMemes[gCurrMemeIdx].selectedLineIdx,'selected line')
+    console.log(gCurrLine, 'gcurrline')
+    console.log(gMemes[gCurrMemeIdx].selectedLineIdx, 'selected line')
     drawImg(meme, meme.lines);
 }
 
@@ -72,7 +72,7 @@ function drawText(currLine, meme, txt) {
     gCtx.fillText(txt, x, y);
     gCtx.strokeText(txt, x, y);
 
-    if(meme.selectedLineIdx === currLine) markLine(meme, currLine)
+    if (meme.selectedLineIdx === currLine) markLine(meme, currLine)
 
 }
 
@@ -121,6 +121,10 @@ function markLine(currMeme, currLine) {
 function drawRect(x, y, txtLength, height) {
     console.log(height)
     gCtx.beginPath();
+    if (gMemes[gCurrMemeIdx].lines[gMemes[gCurrMemeIdx].selectedLineIdx].align === 'right'){
+        x-=txtLength;
+    }
+
     gCtx.rect(x, y - height + 5, txtLength, height);
     // gCtx.fillStyle = 'orange';
     // gCtx.fillRect(x, y, 150, 150);
@@ -128,10 +132,11 @@ function drawRect(x, y, txtLength, height) {
     gCtx.stroke();
 }
 
-
 function onCanvasClicked(event) {
     console.log('canvas clicked!!!')
     canvasClicked(event)
+    renderMeme(gMemes[gCurrMemeIdx])
+
 }
 
 function openModal(currMeme, currLine) {
@@ -165,6 +170,7 @@ function onAddLine(val) {
     console.log('addline?')
 
     addLine(val);
+    clearInput()
     renderMeme(gMemes[gCurrMemeIdx]);
 }
 
