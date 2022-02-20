@@ -15,32 +15,27 @@ var gMemes = [
     {
         selectedImgId: 2,
         selectedLineIdx: 0,
-        lines: [
-        ]
+        lines: []
     },
     {
         selectedImgId: 3,
         selectedLineIdx: 0,
-        lines: [
-        ]
+        lines: []
     },
     {
         selectedImgId: 4,
         selectedLineIdx: 0,
-        lines: [
-        ]
+        lines: []
     },
     {
         selectedImgId: 5,
         selectedLineIdx: 0,
-        lines: [
-        ]
+        lines: []
     },
     {
         selectedImgId: 6,
         selectedLineIdx: 0,
-        lines: [
-        ]
+        lines: []
     },
     {
         selectedImgId: 7,
@@ -208,7 +203,7 @@ function addLine(val) {
     } else gMemes[gCurrMemeIdx].selectedLineIdx++
 
 
-    var newLine = { txt: text, size: 30, align: 'left', color: getRandomColor() ,txtLength: ''};
+    var newLine = { txt: text, size: 30, align: 'left', color: getRandomColor(), txtLength: '' };
     gMemes[gCurrMemeIdx].lines.push(newLine)
 }
 
