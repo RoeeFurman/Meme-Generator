@@ -49,7 +49,7 @@ function openGallery() {
 
     var elGalleryBtn = document.querySelector('.gallery');
     elGalleryBtn.classList.add('clicked-btn');
-    closeModal()
+    // closeModal()
     closeEditor();
 }
 

@@ -178,19 +178,20 @@ function downloadCanvas(elLink) {
 
 function canvasClicked(ev) {
     var lines = gMemes[gCurrMemeIdx].lines;
+    console.log(lines);
+    console.log(ev.offsetX, ev.offsetY)
 
     const clickedLineIdx = lines.findIndex(line =>
-        ev.offsetX >= 0 && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
-        ev.offsetY >= line.y - line.size && ev.offsetY <= line.y
+        ev.offsetX >= line.x && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
+        ev.offsetY > line.y - line.size && ev.offsetY < line.y
     )
-    gCurrLine = clickedLineIdx;
+    console.log(gCurrLine, 'gcurrline');
     if (clickedLineIdx >= 0) {
         gMemes[gCurrMemeIdx].selectedLineIdx = clickedLineIdx;
-        openModal(gMemes[gCurrMemeIdx].lines[clickedLineIdx])
-        console.log(gMemes[gCurrMemeIdx].selectedLineIdx);
+        renderMeme(gMemes[gCurrMemeIdx])
+        renderTextToInput(gMemes[gCurrMemeIdx].lines[clickedLineIdx].txt)
     } else {
-        gMemes[gCurrMemeIdx].selectedLineIdx = 0;
-        closeModal();
+        renderMeme(gMemes[gCurrMemeIdx])
         clearInput()
     }
 }
@@ -199,11 +200,20 @@ function addLine(val) {
     var text;
 
     if (val !== 'line') text = val
-    else text = 'new line here'
+    else text = ' '
 
-    var newLine = { txt: text, size: 30, align: 'center', color: getRandomColor() };
+    console.log(gMemes[gCurrMemeIdx].lines.length, 'length')
+    console.log(gMemes[gCurrMemeIdx].selectedLineIdx, 'curr idx')
+
+    if (!gMemes[gCurrMemeIdx].lines.length) gMemes[gCurrMemeIdx].selectedLineIdx = 0
+    else if (gMemes[gCurrMemeIdx].lines.length && gMemes[gCurrMemeIdx].selectedLineIdx === 0) {
+        gMemes[gCurrMemeIdx].selectedLineIdx = gMemes[gCurrMemeIdx].lines.length;
+        console.log(gMemes[gCurrMemeIdx].selectedLineIdx, 'here')
+    } else gMemes[gCurrMemeIdx].selectedLineIdx++
+
+
+    var newLine = { txt: text, size: 30, align: 'left', color: getRandomColor() ,txtLength: ''};
     gMemes[gCurrMemeIdx].lines.push(newLine)
-    // console.log(gMemes[gCurrMemeIdx].lines);
 }
 
 function deleteLine() {
@@ -215,17 +225,20 @@ function deleteLine() {
 
 function setLineDrag(isDrag) {
     gDragLine = isDrag
-    console.log(gDragLine, 'gdragLine');
+    // console.log(gDragLine, 'gdragLine');
 }
 
-function isLineClicked(clickedPos) {
+function isLineClicked(clickedPos) { //get line idx
     var lines = gMemes[gCurrMemeIdx].lines;
     console.log(lines)
 
-    var lineIdxToDrag = lines.findIndex(line =>
-        (Math.abs(clickedPos.y - line.y) <= 50))
 
-    gMemes[gCurrMemeIdx].selectedLineIdx = lineIdxToDrag;
+
+
+    var lineIdxToDrag = lines.findIndex(line =>
+    (clickedPos.x >= line.x && clickedPos.x <= line.x + gCtx.measureText(line.txt).width &&
+        clickedPos.y >= line.y - line.size && clickedPos.y <= line.y))
+    if (lineIdxToDrag > 0) gMemes[gCurrMemeIdx].selectedLineIdx = lineIdxToDrag;
     return lineIdxToDrag;
 }
 
