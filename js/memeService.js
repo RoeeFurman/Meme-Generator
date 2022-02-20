@@ -28,8 +28,6 @@ var gMemes = [
         selectedImgId: 4,
         selectedLineIdx: 0,
         lines: [
-            { txt: 'sometimes eat ', size: 25, align: 'center', color: 'blue' },
-            { txt: 'I shakshuka', size: 25, align: 'center', color: 'green' }
         ]
     },
     {
@@ -188,10 +186,8 @@ function canvasClicked(ev) {
     console.log(gCurrLine, 'gcurrline');
     if (clickedLineIdx >= 0) {
         gMemes[gCurrMemeIdx].selectedLineIdx = clickedLineIdx;
-        renderMeme(gMemes[gCurrMemeIdx])
         renderTextToInput(gMemes[gCurrMemeIdx].lines[clickedLineIdx].txt)
     } else {
-        renderMeme(gMemes[gCurrMemeIdx])
         clearInput()
     }
 }
@@ -261,6 +257,6 @@ function saveMeme() {
 function alignText(val) {
     console.log(val);
     if (!gMemes[gCurrMemeIdx].lines.length) return
-    gMemes[gCurrMemeIdx].lines[gCurrLine].align = val;
+    gMemes[gCurrMemeIdx].lines[gMemes[gCurrMemeIdx].selectedLineIdx].align = val;
     // console.log(gMemes[gCurrMemeIdx].lines.align)
 }
