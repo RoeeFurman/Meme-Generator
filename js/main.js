@@ -1,8 +1,6 @@
 'use strict'
 
-
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
-
 
 function init() {
     renderMeme(gMemes[0])
