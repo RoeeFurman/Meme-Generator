@@ -47,13 +47,12 @@ function getImgsToShow(value) {
         gImgs.forEach(img => {
             var keyword = img.keywords;
             keyword.forEach(key => {
-                if (key === value) gImgsToShow.push(img)
+                if (key.startsWith(value)) gImgsToShow.push(img)
             })
         })
     }
     return (gImgsToShow);
 }
-
 
 function getSavedMemes() {
     return loadFromStorage('Saved memes');

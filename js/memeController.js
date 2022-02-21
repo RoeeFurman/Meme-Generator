@@ -10,8 +10,8 @@ gCanvas = document.getElementById('my-canvas');
 gCtx = gCanvas.getContext('2d');
 
 function renderMeme(meme) {
-    console.log(gCurrLine, 'gcurrline')
-    console.log(gMemes[gCurrMemeIdx].selectedLineIdx, 'selected line')
+    // console.log(gCurrLine, 'gcurrline')
+    if(!meme.lines) return
     drawImg(meme, meme.lines);
 }
 
@@ -19,9 +19,9 @@ function onSetLineText() {
     // console.log('text changed');
     var eltxt = document.querySelector('.text-input');
     var text = eltxt.value;
-    if (!gMemes[gCurrMemeIdx].lines.length) addLine();
+    if (!gCurrentMeme.lines.length) addLine();
     setLineText(text);
-    renderMeme(gMemes[gCurrMemeIdx]);
+    renderMeme(gCurrentMeme);
 }
 
 function drawImg(meme, lines) {
@@ -62,7 +62,7 @@ function drawText(currLine, meme, txt) {
     }
 
     meme.lines[currLine].txtLength = gCtx.measureText(txt).width
-    console.log(meme.lines[currLine].txtLength, 'txt length')
+    // console.log(meme.lines[currLine].txtLength, 'txt length')
 
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'black';
@@ -78,50 +78,50 @@ function drawText(currLine, meme, txt) {
 
 function onGetColor() {
     gColor = document.querySelector('[name=user-background-color]').value;
-    console.log(gColor);
+    // console.log(gColor);
 
     changeColor(gColor);
-    renderMeme(gMemes[gCurrMemeIdx])
+    renderMeme(gCurrentMeme)
 }
 
 function onChangeFontSize(diff) {
     // console.log('change font size', diff)
 
     changeFontSize(diff);
-    renderMeme(gMemes[gCurrMemeIdx])
+    renderMeme(gCurrentMeme)
 }
 
 function onSwitchline() {
-    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
-    if (currLine < gMemes[gCurrMemeIdx].lines.length - 1) {
-        gMemes[gCurrMemeIdx].selectedLineIdx++;
-        // console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
-    } else (gMemes[gCurrMemeIdx].selectedLineIdx = 0)
-    // console.log('currLine', gMemes[gCurrMemeIdx].selectedLineIdx);
-    var gCurrMeme = gMemes[gCurrMemeIdx];
-    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
+    var currLine = gCurrentMeme.selectedLineIdx;
+    if (currLine < gCurrentMeme.lines.length - 1) {
+        gCurrentMeme.selectedLineIdx++;
+        // console.log('currLine', gCurrentMeme.selectedLineIdx);
+    } else (gCurrentMeme.selectedLineIdx = 0)
+    // console.log('currLine', gCurrentMeme.selectedLineIdx);
+    var gCurrMeme = gCurrentMeme;
+    var currLine = gCurrentMeme.selectedLineIdx;
     console.log(gCurrMeme.selectedLineIdx, 'selected line')
-    // currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
+    // currLine = gCurrentMeme.selectedLineIdx;
     markLine(gCurrMeme, currLine)
-    // openModal(gMemes[gCurrMemeIdx].lines[currLine]);
-    renderMeme(gMemes[gCurrMemeIdx])
-    renderTextToInput(gMemes[gCurrMemeIdx].lines[currLine].txt)
+    // openModal(gCurrentMeme.lines[currLine]);
+    renderMeme(gCurrentMeme)
+    renderTextToInput(gCurrentMeme.lines[currLine].txt)
 }
 
 function markLine(currMeme, currLine) {
-    console.log(currMeme, currLine, 'currmeme', 'currline')
+    // console.log(currMeme, currLine, 'currmeme', 'currline')
     // if(!currMeme.lines[currLine]) console.log('en shura')
     var x = currMeme.lines[currLine].x
     var y = currMeme.lines[currLine].y
 
-    console.log(x, y, 'x - y')
+    // console.log(x, y, 'x - y')
     drawRect(x, y, currMeme.lines[currLine].txtLength, currMeme.lines[currLine].size)
 }
 
 function drawRect(x, y, txtLength, height) {
-    console.log(height)
+    // console.log(height)
     gCtx.beginPath();
-    if (gMemes[gCurrMemeIdx].lines[gMemes[gCurrMemeIdx].selectedLineIdx].align === 'right'){
+    if (gCurrentMeme.lines[gCurrentMeme.selectedLineIdx].align === 'right'){
         x-=txtLength;
     }
 
@@ -133,14 +133,14 @@ function drawRect(x, y, txtLength, height) {
 }
 
 function onCanvasClicked(event) {
-    console.log('canvas clicked!!!')
+    // console.log('canvas clicked!!!')
     canvasClicked(event)
-    renderMeme(gMemes[gCurrMemeIdx])
+    renderMeme(gCurrentMeme)
 
 }
 
 function openModal(currMeme, currLine) {
-    console.log(currMeme, currLine, 'currmeme', 'currline')
+    // console.log(currMeme, currLine, 'currmeme', 'currline')
 
     markLine(currMeme, currLine)
 }
@@ -167,17 +167,17 @@ function clearInput() {
 }
 
 function onAddLine(val) {
-    console.log('addline?')
+    // console.log('addline?')
 
     addLine(val);
     clearInput()
-    renderMeme(gMemes[gCurrMemeIdx]);
+    renderMeme(gCurrentMeme);
 }
 
 function onDeleteLine() {
     deleteLine();
     clearInput();
-    renderMeme(gMemes[gCurrMemeIdx]);
+    renderMeme(gCurrentMeme);
 }
 
 function doFlexiblaMode() {
@@ -209,7 +209,7 @@ function checkTextLength() {
 }
 
 function onSaveMeme() {
-    console.log('saving....')
+    // console.log('saving....')
     saveMeme();
     saveToStorage('Saved memes', gSavedMemes)
     saveToStorage('Saved Imgs', gSavedImgs)
@@ -226,10 +226,10 @@ function openMsg() {
 }
 
 function doAlignText(val) {
-    console.log(val);
+    // console.log(val);
 
     alignText(val);
-    renderMeme(gMemes[gCurrMemeIdx])
+    renderMeme(gCurrentMeme)
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {
@@ -260,14 +260,14 @@ function loadImageFromInput(ev, onImageReady) {
     var reader = new FileReader()
 
     reader.onload = function (event) {
-        console.log('onload');
+        // console.log('onload');
         var img = new Image()
         // Render on canvas
         img.onload = onImageReady.bind(null, img)
         img.src = event.target.result
         gImg = img
     }
-    console.log('after');
+    // console.log('after');
     reader.readAsDataURL(ev.target.files[0])
 }
 

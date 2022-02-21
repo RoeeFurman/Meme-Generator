@@ -24,7 +24,9 @@ function onImgClicked(idx) {
     // console.log(idx, 'imgID');
     var currMeme = getMemeIdxByPicId(idx);
     // console.log(currMeme, 'currMeme')
+    saveCurrMeme(gMemes[currMeme])
     gCurrMemeIdx = currMeme;
+    
     // console.log(gCurrMemeIdx, 'gcurrMEMEidx');
     renderMeme(gMemes[currMeme]);
     closeGallery();
@@ -73,7 +75,6 @@ function onSort(value) {
         renderGallery(gSortBy)
     }
 }
-
 
 function onGoToMyMemes() {
     var elGalleryBtn = document.querySelector('.gallery');

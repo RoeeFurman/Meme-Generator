@@ -5,129 +5,35 @@ var gCurrMemeIdx = 0;
 var gStartPos;
 var gSavedMemes = [];
 var gSavedImgs = [];
+var gCurrentMeme;
 
-var gMemes = [
-    {
-        selectedImgId: 1,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 2,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 3,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 4,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 5,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 6,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 7,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 8,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 9,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 10,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 11,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 12,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 13,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 14,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 15,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 16,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 17,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 18,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 19,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 20,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 21,
-        selectedLineIdx: 0,
-        lines: []
-    },
-    {
-        selectedImgId: 22,
-        selectedLineIdx: 0,
-        lines: []
-    },
-]
+
+var gMemes = []
+
+function createMemes(val) {
+    for (var i = 0; i < val; i++) {
+        gMemes[i] = {
+            selectedImgId: i + 1,
+            selectedLineIdx: 0,
+            lines: []
+        }
+    }
+    return gMemes
+}
+
+function saveCurrMeme(currMeme) {
+    gCurrentMeme = currMeme
+}
 
 function getMeme() {
     return gMeme;
 }
 
 function setLineText(value) {
-    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
+    var currLine = gCurrentMeme.selectedLineIdx;
 
     // console.log(gCurrMemeIdx);
-    gMemes[gCurrMemeIdx].lines[currLine].txt = value; //get position
+    gCurrentMeme.lines[currLine].txt = value; //get position
     return
 }
 
@@ -144,44 +50,45 @@ function getMemeIdxByPicId(picId) {
 }
 
 function changeColor(newColor) {
-    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
+    var currLine = gCurrentMeme.selectedLineIdx;
 
-    gMemes[gCurrMemeIdx].lines[currLine].color = newColor;
+    gCurrentMeme.lines[currLine].color = newColor;
     return
 }
 
 function changeFontSize(diff) {
     // console.log(diff)
-    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
+    var currLine = gCurrentMeme.selectedLineIdx;
     // console.log(currLine);
     if (diff === '+') {
-        gMemes[gCurrMemeIdx].lines[currLine].size += 2;
-        // console.log(gMemes[gCurrMemeIdx].lines[currLine].size)
-    } else gMemes[gCurrMemeIdx].lines[currLine].size -= 2;
+        gCurrentMeme.lines[currLine].size += 2;
+        // console.log(gCurrentMeme.lines[currLine].size)
+    } else gCurrentMeme.lines[currLine].size -= 2;
 
     return;
 }
 
 function downloadCanvas(elLink) {
-    console.log('downloading')
+    // console.log('downloading')
     const data = gCanvas.toDataURL();
     elLink.href = data;
     elLink.download = 'MyAwsomeMEME';
 }
 
 function canvasClicked(ev) {
-    var lines = gMemes[gCurrMemeIdx].lines;
-    console.log(lines);
-    console.log(ev.offsetX, ev.offsetY)
+    0
+    var lines = gCurrentMeme.lines;
+    // console.log(lines);
+    // console.log(ev.offsetX, ev.offsetY)
 
     const clickedLineIdx = lines.findIndex(line =>
         ev.offsetX >= line.x && ev.offsetX <= line.x + gCtx.measureText(line.txt).width &&
         ev.offsetY > line.y - line.size && ev.offsetY < line.y
     )
-    console.log(gCurrLine, 'gcurrline');
+    // console.log(gCurrLine, 'gcurrline');
     if (clickedLineIdx >= 0) {
-        gMemes[gCurrMemeIdx].selectedLineIdx = clickedLineIdx;
-        renderTextToInput(gMemes[gCurrMemeIdx].lines[clickedLineIdx].txt)
+        gCurrentMeme.selectedLineIdx = clickedLineIdx;
+        renderTextToInput(gCurrentMeme.lines[clickedLineIdx].txt)
     } else {
         clearInput()
     }
@@ -193,24 +100,24 @@ function addLine(val) {
     if (val !== 'line') text = val
     else text = ' '
 
-    console.log(gMemes[gCurrMemeIdx].lines.length, 'length')
-    console.log(gMemes[gCurrMemeIdx].selectedLineIdx, 'curr idx')
+    // console.log(gCurrentMeme.lines.length, 'length')
+    // console.log(gCurrentMeme.selectedLineIdx, 'curr idx')
 
-    if (!gMemes[gCurrMemeIdx].lines.length) gMemes[gCurrMemeIdx].selectedLineIdx = 0
-    else if (gMemes[gCurrMemeIdx].lines.length && gMemes[gCurrMemeIdx].selectedLineIdx === 0) {
-        gMemes[gCurrMemeIdx].selectedLineIdx = gMemes[gCurrMemeIdx].lines.length;
-        console.log(gMemes[gCurrMemeIdx].selectedLineIdx, 'here')
-    } else gMemes[gCurrMemeIdx].selectedLineIdx++
+    if (!gCurrentMeme.lines.length) gCurrentMeme.selectedLineIdx = 0
+    else if (gCurrentMeme.lines.length && gCurrentMeme.selectedLineIdx === 0) {
+        gCurrentMeme.selectedLineIdx = gCurrentMeme.lines.length;
+        // console.log(gCurrentMeme.selectedLineIdx, 'here')
+    } else gCurrentMeme.selectedLineIdx++
 
 
     var newLine = { txt: text, size: 30, align: 'left', color: getRandomColor(), txtLength: '' };
-    gMemes[gCurrMemeIdx].lines.push(newLine)
+    gCurrentMeme.lines.push(newLine)
 }
 
 function deleteLine() {
-    var lines = gMemes[gCurrMemeIdx].lines;
-    console.log(lines)
-    var currMeme = gMemes[gCurrMemeIdx].selectedLineIdx;
+    var lines = gCurrentMeme.lines;
+    // console.log(lines)
+    var currMeme = gCurrentMeme.selectedLineIdx;
     lines.splice(currMeme, 1)
 }
 
@@ -220,8 +127,8 @@ function setLineDrag(isDrag) {
 }
 
 function isLineClicked(clickedPos) { //get line idx
-    var lines = gMemes[gCurrMemeIdx].lines;
-    console.log(lines)
+    var lines = gCurrentMeme.lines;
+    // console.log(lines)
 
 
 
@@ -229,19 +136,19 @@ function isLineClicked(clickedPos) { //get line idx
     var lineIdxToDrag = lines.findIndex(line =>
     (clickedPos.x >= line.x && clickedPos.x <= line.x + gCtx.measureText(line.txt).width &&
         clickedPos.y >= line.y - line.size && clickedPos.y <= line.y))
-    if (lineIdxToDrag > 0) gMemes[gCurrMemeIdx].selectedLineIdx = lineIdxToDrag;
+    if (lineIdxToDrag > 0) gCurrentMeme.selectedLineIdx = lineIdxToDrag;
     return lineIdxToDrag;
 }
 
 function moveLine(dx, dy) {
-    var currLine = gMemes[gCurrMemeIdx].selectedLineIdx;
-    gMemes[gCurrMemeIdx].lines[currLine].x += dx
-    gMemes[gCurrMemeIdx].lines[currLine].y += dy
+    var currLine = gCurrentMeme.selectedLineIdx;
+    gCurrentMeme.lines[currLine].x += dx
+    gCurrentMeme.lines[currLine].y += dy
 }
 
 function saveMeme() {
-    gSavedMemes.push(gMemes[gCurrMemeIdx]);
-    var currImgIdx = gMemes[gCurrMemeIdx].selectedImgId;
+    gSavedMemes.push(gCurrentMeme);
+    var currImgIdx = gCurrentMeme.selectedImgId;
     gImgs.forEach(img => {
         if (img.id === currImgIdx) gSavedImgs.unshift(img)
     })
@@ -250,8 +157,8 @@ function saveMeme() {
 }
 
 function alignText(val) {
-    console.log(val);
-    if (!gMemes[gCurrMemeIdx].lines.length) return
-    gMemes[gCurrMemeIdx].lines[gMemes[gCurrMemeIdx].selectedLineIdx].align = val;
-    // console.log(gMemes[gCurrMemeIdx].lines.align)
+    // console.log(val);
+    if (!gCurrentMeme.lines.length) return
+    gCurrentMeme.lines[gCurrentMeme.selectedLineIdx].align = val;
+    // console.log(gCurrentMeme.lines.align)
 }

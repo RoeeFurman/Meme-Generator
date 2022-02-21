@@ -3,7 +3,9 @@
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function init() {
-    renderMeme(gMemes[0])
+    gMemes = createMemes(22)
+    console.log(gMemes)
+    // renderMeme(gMemes[0])
     addListeners()
     openGallery()
     renderGallery(gSortBy)
@@ -38,7 +40,7 @@ function onDown(ev) {
 }
 
 function onMove(ev) {
-    console.log('onMove()');
+    // console.log('onMove()');
     if (gDragLine) {
         // console.log('now drag')
         const pos = getEvPos(ev)
@@ -52,7 +54,7 @@ function onMove(ev) {
 }
 
 function onUp() {
-    console.log('onUp()');
+    // console.log('onUp()');
     setLineDrag(false)
     document.body.style.cursor = 'grab'
 }
